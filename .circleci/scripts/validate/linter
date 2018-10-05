@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+set -x
+
+echo "LINTER"
+#find .circleci/scripts/ -type f -exec shellcheck {} +
+#find scripts/ -type f | grep -v scripts/winresources | xargs shellcheck
+
+set +x

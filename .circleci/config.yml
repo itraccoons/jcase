@@ -14,9 +14,7 @@ jobs:
           exclusive: false
       - run:
           name: "Build"
-          command: ls -a
-
-
+          command: make linter
 
 #  test:
 #    working_directory: /work
