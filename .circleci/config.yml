@@ -5,7 +5,7 @@ version: 2
 jobs:
 
   build:
-    working_directory: /work
+    working_directory: ~/work
     docker: [{image: 'circleci/openjdk:10-jdk'}]
     steps:
       - checkout
