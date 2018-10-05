@@ -28,7 +28,7 @@ jobs:
 #          name: "Test"
 
       - store_artifacts:
-          path: /work/artifacts
+          path: ~/work/artifacts
 
 workflows:
   version: 2
