@@ -14,7 +14,7 @@ jobs:
           exclusive: false
       - run:
           name: "Build"
-          command: ls
+          command: ls -a
 
 
 
