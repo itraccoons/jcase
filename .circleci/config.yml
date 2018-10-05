@@ -1,3 +1,4 @@
+# Java Gradle CircleCI 2.0 configuration file
 ---
 version: 2
 
@@ -5,7 +6,7 @@ jobs:
 
   build:
     working_directory: /work
-    docker: [{image: 'docker:17.06-git'}]
+    docker: [{image: 'circleci/openjdk:10-jdk'}]
     steps:
       - checkout
       - setup_remote_docker:
@@ -13,16 +14,18 @@ jobs:
           exclusive: false
       - run:
           name: "Build"
+          command: ls
 
 
-  test:
-    working_directory: /work
-    docker: [{image: 'docker:17.06-git'}]
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: "Test"
+
+#  test:
+#    working_directory: /work
+#    docker: [{image: 'docker:17.06-git'}]
+#    steps:
+#      - checkout
+#      - setup_remote_docker
+#      - run:
+#          name: "Test"
 
       - store_artifacts:
           path: /work/artifacts
@@ -32,4 +35,3 @@ workflows:
   ci:
     jobs:
     - build
-    - test
