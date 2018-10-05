@@ -9,3 +9,7 @@ build:
 .PHONY: test-unit
 test-unit:
 	.circleci/scripts/test/unit
+
+.PHONY: deploy
+deploy:
+	echo "deploy"
