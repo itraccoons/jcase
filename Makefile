@@ -4,7 +4,7 @@ validate:
 
 .PHONY: build
 build:
-	.circleci/scripts/build/gradle
+	.circleci/scripts/build/gradlew
 
 .PHONY: test-unit
 test-unit:
