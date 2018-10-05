@@ -1,6 +1,6 @@
 .PHONY: validate
 validate:
-	ls -la .circleci/scripts/validate/linter
+	.circleci/scripts/validate/linter
 
 .PHONY: build
 build:
