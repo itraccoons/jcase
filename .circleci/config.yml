@@ -4,7 +4,7 @@ version: 2
 
 jobs:
 
-  build:
+  validate:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:10-jdk'}]
     steps:
@@ -13,7 +13,7 @@ jobs:
           reusable: true
           exclusive: false
       - run:
-          name: "Build"
+          name: "Validate Build"
           command: make validate
 
 #  test:
@@ -32,4 +32,4 @@ workflows:
   version: 2
   ci:
     jobs:
-    - build
+    - validate
