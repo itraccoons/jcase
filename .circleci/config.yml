@@ -1,0 +1,35 @@
+---
+version: 2
+
+jobs:
+
+  build:
+    working_directory: /work
+    docker: [{image: 'docker:17.06-git'}]
+    steps:
+      - checkout
+      - setup_remote_docker:
+          reusable: true
+          exclusive: false
+      - run:
+          name: "Build"
+
+
+  test:
+    working_directory: /work
+    docker: [{image: 'docker:17.06-git'}]
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Test"
+
+      - store_artifacts:
+          path: /work/artifacts
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+    - build
+    - test
