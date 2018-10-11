@@ -3,7 +3,7 @@
 set -e
 set -x
 
-echo "Running ShellCheck"
+#echo "Running ShellCheck audit"
 #find .circleci/scripts/ -type f -exec shellcheck {} +
 
 echo "Running Google Java Style audit"
