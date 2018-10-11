@@ -5,6 +5,6 @@ set -x
 
 echo "Running Build"
 ls -la
-
+hostname
 
 set +x
