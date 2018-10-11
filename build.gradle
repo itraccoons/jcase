@@ -1,1 +1,6 @@
 apply plugin: 'java'
+
+jar {
+    baseName = 'TransformationJCase'
+    version =  '0.1.0'
+}
