@@ -13,7 +13,7 @@ jobs:
           reusable: true
           exclusive: false
       - run:
-          name: "Validate Build"
+          name: "Validate phase"
           command: make validate
   build:
     working_directory: ~/work
@@ -22,7 +22,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: "Test"
+          name: "Build phase"
           command: ls -la
 
 #  test:
