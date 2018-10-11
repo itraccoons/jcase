@@ -4,7 +4,6 @@ set -e
 set -x
 
 echo "Running Build"
-ls -la
-hostname
+gradle -version
 
 set +x
