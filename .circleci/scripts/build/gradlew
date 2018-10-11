@@ -4,6 +4,8 @@ set -e
 set -x
 
 echo "Running Build"
-gradle -version
+
+gradle tasks
+gradle build
 
 set +x
