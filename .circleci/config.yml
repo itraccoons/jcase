@@ -15,6 +15,15 @@ jobs:
       - run:
           name: "Validate Build"
           command: make validate
+  build:
+    working_directory: ~/work
+    docker: [{image: 'circleci/openjdk:10-jdk'}]
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Test"
+          command: ls -la
 
 #  test:
 #    working_directory: /work
@@ -33,3 +42,4 @@ workflows:
   ci:
     jobs:
     - validate
+    - build
