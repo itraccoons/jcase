@@ -14,9 +14,7 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: |
-            apt-get install shellcheck
-            make validate
+          command: make validate
 
   build:
     working_directory: ~/work
