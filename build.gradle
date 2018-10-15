@@ -1,6 +1,11 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
 jar {
+    manifest {
+        attributes 'Main-Class': 'org.raccoons.backyards.TransformationJCase'
+    }
     baseName = 'TransformationJCase'
     version =  '0.1.0'
+
 }
