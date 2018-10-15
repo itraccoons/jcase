@@ -14,7 +14,10 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: make validate
+          command: |
+            apt-get install shellcheck
+            make validate
+
   build:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:10-jdk'}]

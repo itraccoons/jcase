@@ -1,14 +1,14 @@
 .PHONY: validate
 validate: ## Run all linters
-	.circleci/scripts/validate/lint
+	.circleci/scripts/validate/lint.sh
 
 .PHONY: build
 build: ## Build a version
-	.circleci/scripts/build/gradlew
+	.circleci/scripts/build/gradlew.sh
 
 .PHONY: test
 test: ## Run all tests
-	.circleci/scripts/test/unit
+	.circleci/scripts/test/unit.sh
 
 .PHONY: deploy
 deploy: ## Deploy a version
