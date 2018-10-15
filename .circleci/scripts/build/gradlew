@@ -6,6 +6,5 @@ set -x
 echo "Running Build"
 
 gradle build
-gradle run
 
 set +x

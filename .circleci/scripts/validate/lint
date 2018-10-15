@@ -1,6 +1,11 @@
 #!/bin/sh
+#
+# Perform static analysis of
 
+
+# Exit immediately if a command exits with a non-zero status
 set -e
+# Print commands and their arguments as they are executed
 set -x
 
 #echo "Running ShellCheck audit"
