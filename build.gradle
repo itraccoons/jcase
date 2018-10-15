@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+mainClassName = 'org.raccoons.backyards.TransformationJCase'
+
 jar {
     manifest {
         attributes 'Main-Class': 'org.raccoons.backyards.TransformationJCase'
