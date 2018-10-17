@@ -1,5 +1,3 @@
-all: help
-
 .PHONY: validate
 validate: ## Run all linters
 	.circleci/scripts/validate/lint.sh
@@ -23,4 +21,4 @@ help: ## Print this help
 #	Replace own self-documented Makefile to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 #	@grep "^[A-z]*:.#" $(MAKEFILE_LIST) | sed "s/[:,#]//g"
 
-#.DEFAULT_GOAL := help
+.DEFAULT_GOAL := help

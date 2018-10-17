@@ -24,7 +24,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: "Build phase"
-          command: make build $CIRCLE_BUILD_NUM
+          command: make build
 
 #  test:
 #    working_directory: /work
