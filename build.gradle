@@ -1,13 +1,26 @@
+plugins {
+    id "com.google.osdetector" version "1.6.0"
+}
+
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: "com.google.osdetector"
 
-mainClassName = 'org.raccoons.backyards.TransformationJCase'
+mainClassName = 'main.java.org.raccoons.backyards.TransformationJCase'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.raccoons.backyards.TransformationJCase'
+        attributes 'Main-Class': 'main.java.org.raccoons.backyards.TransformationJCase'
     }
     baseName = 'TransformationJCase'
     version =  '0.1.0'
 
+}
+
+task os {
+    doLast {
+        println "osdetector.os: " + osdetector.os
+        println "osdetector.arch: " + osdetector.arch
+        println "osdetector.release: " + osdetector.release
+    }
 }
