@@ -16,10 +16,6 @@ repositories {
     mavenCentral()
 }
 
-checkstyle {
-    toolVersion "8.13"
-}
-
 jar {
     manifest {
         attributes 'Main-Class': 'org.raccoons.backyards.TransformationJCase'
@@ -27,6 +23,11 @@ jar {
 //    baseName = 'TransformationJCase'
 //    version =  '0.1.0'
 }
+
+checkstyle {
+    toolVersion "8.13"
+}
+
 task os {
     doLast {
         println "osdetector.os: " + osdetector.os

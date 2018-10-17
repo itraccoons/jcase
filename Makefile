@@ -14,6 +14,10 @@ test: ## Run all tests
 deploy: ## Deploy a version
 	echo "deploy"
 
+.PHONY: clean
+clean: ## Clean workspace
+	echo "clean"
+
 .PHONY: help
 help: ## Print this help
 	@echo "List of available commands:"
