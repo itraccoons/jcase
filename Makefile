@@ -16,8 +16,8 @@ deploy: ## Deploy a version
 
 help: ## Print this help
 	@echo "List of available commands:"
-#	Replace own self-documented Makefile to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-#	@grep "^[A-z]*:.#" $(MAKEFILE_LIST) | sed "s/[:,#]//g"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+    # Replace own self-documented Makefile to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
+    # @grep "^[A-z]*:.#" $(MAKEFILE_LIST) | sed "s/[:,#]//g"
 
-#.DEFAULT_GOAL := help
+.DEFAULT_GOAL := help
