@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'checkstyle'
     id 'com.google.osdetector' version '1.6.0'
 }
 
@@ -15,6 +16,10 @@ repositories {
     mavenCentral()
 }
 
+checkstyle {
+    toolVersion "8.13"
+}
+
 jar {
     manifest {
         attributes 'Main-Class': 'org.raccoons.backyards.TransformationJCase'
@@ -22,7 +27,6 @@ jar {
 //    baseName = 'TransformationJCase'
 //    version =  '0.1.0'
 }
-
 task os {
     doLast {
         println "osdetector.os: " + osdetector.os
