@@ -1,4 +1,4 @@
-package main.java.org.raccoons.backyards;
+package org.raccoons.backyards;
 
 import java.awt.Point;
 
