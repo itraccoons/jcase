@@ -1,7 +1,6 @@
 package org.raccoons.backyards;
 
 import java.awt.Point;
-import java.util.Scanner;
 
 @SuppressWarnings("InstanceMethodNamingConvention"
 )
