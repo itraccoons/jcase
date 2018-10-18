@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# Build code with Graddle Wrapper
+# Written by: Oleksii Kucheruk <ok@raccoons.co> on Thu Oct 18 2018
 
 set -e
 set -x
