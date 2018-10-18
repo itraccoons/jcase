@@ -1,14 +1,16 @@
+# Using 'sh -c' can avoid situation then VCS do not preserves file permissions
+
 .PHONY: validate
 validate: ## Run all linters
-	.circleci/scripts/validate/lint.sh
+	sh -c .circleci/scripts/validate/lint.sh
 
 .PHONY: build
 build: ## Build a version
-	.circleci/scripts/build/gradlew.sh
+	sh -c .circleci/scripts/build/gradlew.sh
 
 .PHONY: test
 test: ## Run all tests
-	.circleci/scripts/test/unit.sh
+	sh -c .circleci/scripts/test/unit.sh
 
 .PHONY: deploy
 deploy: ## Deploy a version
