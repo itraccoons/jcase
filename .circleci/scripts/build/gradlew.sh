@@ -3,7 +3,11 @@
 # Build code with Graddle Wrapper
 # Written by: Oleksii Kucheruk <ok@raccoons.co> on Thu Oct 18 2018
 
+##
+# Exit immediately if a command exits with a non-zero status
 set -e
+
+# Print commands and their arguments as they are executed
 set -x
 
 echo "Running Build"
