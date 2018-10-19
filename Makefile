@@ -38,7 +38,9 @@ clean: ## Clean workspace
 	echo "clean"
 
 .PHONY: validate-ci
-validate-ci: yamllint shellcheck ## Validate CI configuration
+validate-ci: 
+#yamllint shellcheck ## Validate CI configuration
+	time make yamllint
 
 .PHONY: validate-src 
 validate-src: lint ## Validate Source Code

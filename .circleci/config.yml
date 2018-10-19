@@ -15,8 +15,8 @@ jobs:
       - run:
           name: "Validate phase"
           command: |
-            #make shellcheck
-            make lint
+            make validate-ci
+            make validate-src
 
   build:
     working_directory: ~/work
