@@ -14,7 +14,9 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: make validate
+          command: |
+            #make shellcheck
+            make lint
 
   build:
     working_directory: ~/work
@@ -42,5 +44,5 @@ workflows:
   version: 2
   ci:
     jobs:
-    - validate
-    - build
+      - validate
+      - build
