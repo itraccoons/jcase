@@ -1,3 +1,7 @@
+# Makefile based wrapper for automating building Java Projects
+# with Gradle locally and with Docker on CircleCI
+# Written by: Oleksii Kucheruk <ok@raccoons.co> on Fri Oct 5 2018
+
 .DEFAULT_GOAL := help
 
 .PHONY: help

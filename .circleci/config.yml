@@ -1,4 +1,6 @@
-# Java Gradle CircleCI 2.0 configuration file
+# CircleCI 2.0 configuration file
+# Build Java Projects with Gradle
+# Written by: Oleksii Kucheruk <ok@raccoons.co> on Fri Oct 5 2018
 ---
 version: 2
 
