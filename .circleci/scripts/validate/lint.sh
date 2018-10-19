@@ -10,11 +10,7 @@ set -e
 # Print commands and their arguments as they are executed
 set -x
 
-echo "Running Validate Script:"
-
-echo "ShellCheck audit"
-#need to add shellcheck to dockerimage
-#find .circleci/scripts/ -type f -name "*.sh" -exec shellcheck {} +
+echo "Running Lint Script:"
 
 echo "Google Java Style audit"
 find src/ -type f -name "*.java" -exec java -jar .circleci/scripts/validate/checkstyle-8.13-all.jar -c .circleci/scripts/validate/google_checks.xml {} +
