@@ -1,4 +1,4 @@
-# R-edu: JCase //Learning Java
+# R-edu: JCase // Learning Java
 This repository is my start point of learning Java.
 For now my JCase has a lot of gaps, stubs or blackouts after 60 hours of
 searching, reading, watching, trying, coding, sicking, whatever-ing...
@@ -27,6 +27,7 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
 
 ### Using Makefile locally and in-container
 List all the available targets:
+
 	$ make
     List of available commands:
     build                          Build a version
