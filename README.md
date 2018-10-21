@@ -4,7 +4,7 @@ For now my JCase has a lot of gaps, stubs or blackouts after 60 hours of
 searching, reading, watching, trying, coding, sicking, whatever-ing...
 
 Actually no Java code present - just simple peace of code to make IDE, build and CI work.
-_My Circle based on java.awt.Point with some sort of overloading for _
+My Circle based on java.awt.Point with some sort of overloading.
 
 Unfortunately no OOP learning has been started yet but flashbacks and brain digging already in place.
 
