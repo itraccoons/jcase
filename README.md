@@ -1,4 +1,4 @@
-##DEVELOPMENT ENVIRONMENT			
+## DEVELOPMENT ENVIRONMENT
 
 #### Hardware
 MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3	
@@ -17,4 +17,20 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
       * App SeaEye 0.5-dev (https://github.com/nolaneo/SeaEye)
       * IM Slack _(not installed for now)_	
     * Docker Image circleci/openjdk:10-jdk (https://hub.docker.com/r/circleci/openjdk/)
-    
+
+### Using Makefile
+	$ make
+    List of available commands:
+    build                          Build a version
+    clean                          Clean workspace
+    deploy                         Deploy a version
+    help                           Print this help
+    lint                           Run linters for source code
+    shellcheck                     Run Shellcheck
+    test                           Run all tests
+    validate-ci                    Validate CI configuration
+    validate-src                   Validate Source Code
+    yamllint                       Run YAML Lint
+	$ make validate-src
+	$ make build
+
