@@ -19,10 +19,10 @@ public class TransformationJCase {
     System.out.println("myCircle located at " + myCircle.getCenter());
 
     myCircle.move(1,1);
-    System.out.println("myCircle is " + myCircle);
+    System.out.println("myCircle is moved by (x,y) to " + myCircle);
 
     myCircle.move(myPoint);
-    System.out.println("myCircle is " + myCircle);
+    System.out.println("myCircle is moved by myPoint to " + myCircle);
 
   }
 }
