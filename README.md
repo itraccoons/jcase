@@ -1,4 +1,11 @@
-## DEVELOPMENT ENVIRONMENT
+# R-edu: JCase //Learning Java
+This repository is my start point of learning Java.
+For now my JCase has a lot of gaps, stubs or blackouts after 60 hours of
+searching, reading, watching, trying, coding, sicking, whatever-ing...
+
+Unfortunately no OOP learning has been started yet but flashbacks and brain digging already in place.
+
+### Development Environment
 
 #### Hardware
 MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3	
@@ -18,7 +25,8 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
       * IM Slack _(not installed for now)_	
     * Docker Image circleci/openjdk:10-jdk (https://hub.docker.com/r/circleci/openjdk/)
 
-### Using Makefile
+### Using Makefile locally and in-container
+List all the available targets:
 	$ make
     List of available commands:
     build                          Build a version
@@ -31,6 +39,11 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
     validate-ci                    Validate CI configuration
     validate-src                   Validate Source Code
     yamllint                       Run YAML Lint
+
+Run source code validation
 	$ make validate-src
+
+Build the project
 	$ make build
 
+(https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/43756480_1194500660718042_3407559282357436416_n.png?_nc_cat=105&_nc_ht=scontent.fhrk1-1.fna&oh=454789711c1d02145e22f8c492a421b5&oe=5C8A76E0)
