@@ -1,6 +1,5 @@
 plugins {
   java
-//  kotlin("jvm") version "1.2.71"
   application
   checkstyle
   id("com.google.osdetector") version "1.6.0"
