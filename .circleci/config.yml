@@ -20,6 +20,16 @@ jobs:
             make validate-ci
             make validate-src
 
+  test:
+    working_directory: ~/work
+    docker: [{image: 'circleci/openjdk:10-jdk'}]
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        name: "Unit test phase"
+        command: make test
+
   build:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:10-jdk'}]
@@ -47,4 +57,5 @@ workflows:
   ci:
     jobs:
       - validate
+      - test
       - build
