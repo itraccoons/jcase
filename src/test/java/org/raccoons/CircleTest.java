@@ -9,8 +9,8 @@ public class CircleTest {
   @Test
   public void testGetCenter() {
     Point myPoint = new Point(9, 23);
-    Circle myCircle = new Circle(myPoint, 45);
-    Assert.assertEquals("Raccoon1", myPoint, myCircle.getCenter());
-    Assert.assertEquals("Raccoon1", 45, myCircle.getRadius());
+    Circle myCircle = new Circle(9,23, 45);
+    Assert.assertEquals(myPoint, myCircle.getCenter());
+    Assert.assertEquals(45, myCircle.getRadius());
   }
 }
