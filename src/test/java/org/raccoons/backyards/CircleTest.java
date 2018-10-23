@@ -1,4 +1,4 @@
-package org.raccoons;
+package org.raccoons.backyards;
 
 import java.awt.Point;
 import org.junit.Assert;
