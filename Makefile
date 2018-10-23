@@ -22,7 +22,7 @@ shellcheck: ## Run Shellcheck
 	sh -c '.circleci/scripts/validate/shellcheck.sh'
 
 .PHONY: ktlint
-ktlint: ## Run Shellcheck
+ktlint: ## Run an anti-bikeshedding Kotlin linter
 	sh -c '.circleci/scripts/validate/ktlint.sh'
 
 .PHONY: lint

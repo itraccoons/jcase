@@ -8,13 +8,24 @@ plugins {
     id("com.google.osdetector") version "1.6.0"
 }
 
+checkstyle {
+    toolVersion = "8.13"
+}
+
 repositories {
     mavenCentral()
     jcenter()
 }
 
-checkstyle {
-    toolVersion = "8.13"
+dependencies {
+    testCompile("junit:junit:4.12")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+}
+
+val test by tasks.getting(Test::class) {
+    //useJUnitPlatform()
+    useJUnit()
 }
 
 tasks.create("os") {
