@@ -24,8 +24,7 @@ dependencies {
 }
 
 val test by tasks.getting(Test::class) {
-    //useJUnitPlatform()
-    useJUnit()
+    useJUnitPlatform()
 }
 
 tasks.create("os") {
