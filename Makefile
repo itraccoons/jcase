@@ -21,6 +21,10 @@ yamllint: ## Run YAML Lint
 shellcheck: ## Run Shellcheck
 	sh -c '.circleci/scripts/validate/shellcheck.sh'
 
+.PHONY: ktlint
+ktlint: ## Run an anti-bikeshedding Kotlin linter
+	sh -c '.circleci/scripts/validate/ktlint.sh'
+
 .PHONY: lint
 lint: ## Run linters for source code
 	sh -c '.circleci/scripts/validate/lint.sh'
@@ -42,7 +46,7 @@ clean: ## Clean workspace
 	echo "clean"
 
 .PHONY: validate-ci
-validate-ci: yamllint shellcheck ## Validate CI configuration
+validate-ci: yamllint shellcheck ktlint ## Validate CI configuration
 #	time make yamllint
 #	time make shellcheck
 
