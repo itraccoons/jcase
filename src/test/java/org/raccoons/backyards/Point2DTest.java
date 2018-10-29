@@ -42,11 +42,11 @@ class Point2DTest {
 
   @Test
   void getX() {
-    Assertions.assertEquals(9 , testPoint.getX());
+    Assertions.assertEquals(9, testPoint.getX());
   }
 
   @Test
   void getY() {
-    Assertions.assertEquals(23 , testPoint.getY());
+    Assertions.assertEquals(23, testPoint.getY());
   }
 }

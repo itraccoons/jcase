@@ -13,10 +13,9 @@ public class TransformationJCase {
   public static void main(String[] args) {
 
     Point2D myPoint2D = new Point2D(9, 23);
-//    Circle myCircle = new Circle(myPoint2D, 45);
-
+    //Circle myCircle = new Circle(myPoint2D, 45);
     System.out.println(myPoint2D);
-//    System.out.println(myCircle);
+    //System.out.println(myCircle);
 
     /*
 
