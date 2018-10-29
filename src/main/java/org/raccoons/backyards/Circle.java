@@ -1,44 +1,42 @@
 package org.raccoons.backyards;
 
-import java.awt.Point;
-
 @SuppressWarnings("WeakerAccess"
 )
 
 public class Circle {
-  private Point center;
+  private Point2D center;
   private int radius;
 
   public Circle() {
-    this(new Point(0, 0));
+    this(new Point2D(0, 0));
   }
 
   public Circle(int x, int y, int radius) {
-    this(new Point(x, y), radius);
+    this(new Point2D(x, y), radius);
   }
 
-  public Circle(Point center) {
+  public Circle(Point2D center) {
     this(center, 1);
   }
 
-  public Circle(Point center, int radius) {
+  public Circle(Point2D center, int radius) {
     this.setCenter(center);
     this.radius = radius;
   }
 
   public void setCenter(int x, int y) {
-    this.setCenter(new Point(x, y));
+    this.setCenter(new Point2D(x, y));
   }
 
-  public void setCenter(Point center) {
+  public void setCenter(Point2D center) {
     this.center = center;
   }
 
   public void move(int x, int y) {
-    this.setCenter(new Point(x, y));
+    this.setCenter(new Point2D(x, y));
   }
 
-  public void move(Point center) {
+  public void move(Point2D center) {
     this.center = center;
   }
 
@@ -46,7 +44,7 @@ public class Circle {
     return radius;
   }
 
-  public Point getCenter() {
+  public Point2D getCenter() {
     return this.center;
   }
 
