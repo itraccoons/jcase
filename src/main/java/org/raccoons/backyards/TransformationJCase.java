@@ -9,6 +9,8 @@ import java.awt.Point;
 public class TransformationJCase {
   /**
    * Some text here.
+   *
+   * @param args  XXX
    */
   public static void main(String[] args) {
 
