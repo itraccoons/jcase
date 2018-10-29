@@ -8,41 +8,41 @@ public class Point2D {
   /*
    * The x and y coordinates
    */
-  private double x;
-  private double y;
+  private double coordinateX;
+  private double coordinateY;
 
   public Point2D() {
   }
 
   public Point2D(double x, double y) {
-    this.x = x;
-    this.y = y;
+    this.coordinateX = x;
+    this.coordinateY = y;
   }
 
   public void setX(double x) {
-    this.x = x;
+    this.coordinateX = x;
   }
 
   public void setY(double y) {
-    this.y = y;
+    this.coordinateY = y;
   }
 
   public void setLocation(double x, double y) {
-    this.x = x;
-    this.y = y;
+    this.coordinateX = x;
+    this.coordinateY = y;
   }
 
   public void setLocation(Point2D p) {
-    this.x = p.getX();
-    this.y = p.getY();
+    this.coordinateX = p.getX();
+    this.coordinateY = p.getY();
   }
 
   public double getX() {
-    return x;
+    return coordinateX;
   }
 
   public double getY() {
-    return y;
+    return coordinateY;
   }
 
   @Override
@@ -59,6 +59,6 @@ public class Point2D {
 
   @Override
   public String toString() {
-    return getClass().getName() + "[x=" + x + ",y=" + y + "]";
+    return getClass().getName() + "[x=" + coordinateX + ",y=" + coordinateY + "]";
   }
 }
