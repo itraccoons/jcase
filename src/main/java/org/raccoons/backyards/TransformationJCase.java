@@ -2,6 +2,7 @@ package org.raccoons.backyards;
 
 import java.awt.Point;
 
+
 @SuppressWarnings("InstanceMethodNamingConvention"
 )
 
@@ -10,9 +11,14 @@ public class TransformationJCase {
    * Some text here.
    */
   public static void main(String[] args) {
-    Point myPoint = new Point(9, 23);
-    Circle myCircle = new Circle(myPoint, 45);
 
+    Point2D myPoint2D = new Point2D(9, 23);
+//    Circle myCircle = new Circle(myPoint2D, 45);
+
+    System.out.println(myPoint2D);
+//    System.out.println(myCircle);
+
+    /*
 
     System.out.println("myCircle is " + myCircle);
     System.out.println("myCircle radius is " + myCircle.getRadius());
@@ -23,6 +29,6 @@ public class TransformationJCase {
 
     myCircle.move(myPoint);
     System.out.println("myCircle is moved by myPoint to " + myCircle);
-
+  */
   }
 }
