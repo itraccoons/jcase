@@ -23,5 +23,7 @@ echo "Gradle Tasks"
 ${sh_c} './gradlew os'
 ${sh_c} './gradlew build --console=plain'
 ${sh_c} './gradlew run'
+${sh_c} './gradlew javadoc'
+
 
 set +x
