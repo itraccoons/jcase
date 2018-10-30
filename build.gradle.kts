@@ -6,7 +6,7 @@ plugins {
     application
     checkstyle
     jacoco
-    id("com.google.osdetector") version "1.6.0"
+//    id("com.google.osdetector") version "1.6.0"
 }
 
 val checkstyleVersion by extra { "8.13" }
@@ -31,13 +31,15 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 }
 
+/*
+tasks{
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
 }
 
 val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::class) {
     violationRules {
-        rule { limit { minimum = BigDecimal.valueOf(0.6) } }
+        rule { limit { minimum = BigDecimal.valueOf(0.7) } }
     }
     val check by tasks
     check.dependsOn(this)
@@ -48,8 +50,8 @@ val os by tasks.creating {
     println("osdetector.arch: " + osdetector.arch)
     println("osdetector.release: " + osdetector.release)
 }
+*/
 
-/*
 tasks {
     "test"(Test::class) {
         useJUnitPlatform()
@@ -62,7 +64,6 @@ tasks {
         check.dependsOn(this)
     }
 }
-*/
 
 version = "0.1.0"
 
