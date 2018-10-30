@@ -31,19 +31,17 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 }
 
-/*
+
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
 }
 
 val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::class) {
-    "jacocoTestCoverageVerification"(JacocoCoverageVerification::class) {
-        violationRules {
-            rule { limit { minimum = BigDecimal.valueOf(0.7) } }
-        }
-        val check by tasks
-        check.dependsOn(this)
+    violationRules {
+        rule { limit { minimum = BigDecimal.valueOf(0.6) } }
     }
+    val check by tasks
+    check.dependsOn(this)
 }
 
 val os by tasks.creating {
@@ -51,8 +49,8 @@ val os by tasks.creating {
     println("osdetector.arch: " + osdetector.arch)
     println("osdetector.release: " + osdetector.release)
 }
-*/
 
+/*
 tasks {
     "test"(Test::class) {
         useJUnitPlatform()
@@ -64,12 +62,8 @@ tasks {
         val check by tasks
         check.dependsOn(this)
     }
-    create("os") {
-        println("osdetector.os: " + osdetector.os)
-        println("osdetector.arch: " + osdetector.arch)
-        println("osdetector.release: " + osdetector.release)
-    }
 }
+*/
 
 version = "0.1.0"
 

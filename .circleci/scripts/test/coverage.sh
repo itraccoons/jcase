@@ -16,6 +16,6 @@ echo "Running Test Coverage Script:"
 sh_c='sh -c'
 
 echo "Test coverage with Gradle Wrapper"
-${sh_c} './gradlew jacocoTestReport --console=plain'
+${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification --console=plain'
 
 set +x

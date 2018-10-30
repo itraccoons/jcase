@@ -20,9 +20,8 @@ echo "Running Build Script:"
 sh_c='sh -c'
 
 echo "Gradle Tasks"
-${sh_c} './gradlew build --console=plain'
-${sh_c} './gradlew run'
+${sh_c} './gradlew build --console=plain -x jacocoTestCoverageVerification'
 ${sh_c} './gradlew javadoc'
-
+${sh_c} './gradlew run'
 
 set +x
