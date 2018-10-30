@@ -16,6 +16,6 @@ echo "Running Unit Test Script:"
 sh_c='sh -c'
 
 echo "Unit tests with Gradle Wrapper"
-${sh_c} './gradlew test --console=plain'
+${sh_c} './gradlew test --console=verbose -i'
 
 set +x
