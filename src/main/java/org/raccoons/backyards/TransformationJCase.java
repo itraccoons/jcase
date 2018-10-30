@@ -8,16 +8,16 @@ import java.awt.Point;
 
 public class TransformationJCase {
   /**
-   * Some text here.
+   * App entry point.
    *
-   * @param args  XXX
+   * @param args    an array of command-line arguments for the application
    */
   public static void main(String[] args) {
 
     Point2D myPoint2D = new Point2D(9, 23);
-    //Circle myCircle = new Circle(myPoint2D, 45);
+    Circle myCircle = new Circle();
     System.out.println(myPoint2D);
-    //System.out.println(myCircle);
+    System.out.println(myCircle);
 
     /*
 
