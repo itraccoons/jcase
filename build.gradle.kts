@@ -31,7 +31,6 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 }
 
-
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
 }
