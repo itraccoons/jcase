@@ -12,9 +12,9 @@ set -x
 
 echo "Running Lint Script:"
 
-echo "Google Java Style audit"
-find src/ -type f -name "*.java" -exec java -jar .circleci/scripts/validate/checkstyle-8.13-all.jar -c .circleci/scripts/validate/google_checks.xml {} +
-
-#find scripts/ -type f | grep -v scripts/winresources | xargs shellcheck
+### echo "Google Java Style audit"
+### find src/ -type f -name "*.java" -exec java -jar .circleci/scripts/validate/checkstyle-8.13-all.jar -c .circleci/scripts/validate/google_checks.xml {} +
+###
+### find scripts/ -type f | grep -v scripts/winresources | xargs shellcheck
 
 set +x

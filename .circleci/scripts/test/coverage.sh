@@ -10,12 +10,12 @@ set -e
 # Print commands and their arguments as they are executed
 set -x
 
-echo "Running Unit Test Script:"
+echo "Running Test Coverage Script:"
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c='sh -c'
 
-echo "Unit tests with Gradle Wrapper"
-${sh_c} './gradlew test --console=plain'
+echo "Test coverage with Gradle Wrapper"
+${sh_c} './gradlew jacocoTestReport --console=plain'
 
 set +x

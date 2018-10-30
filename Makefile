@@ -25,30 +25,40 @@ shellcheck: ## Run Shellcheck
 ktlint: ## Run an anti-bikeshedding Kotlin linter
 	sh -c '.circleci/scripts/validate/ktlint.sh'
 
-.PHONY: lint
-lint: ## Run linters for source code
-	sh -c '.circleci/scripts/validate/lint.sh'
-
-.PHONY: build
-build: ## Build a version
-	sh -c '.circleci/scripts/build/gradlew.sh'
-
-.PHONY: test
-test: ## Run all tests
-	sh -c '.circleci/scripts/test/unit.sh'
-
-.PHONY: deploy
-deploy: ## Deploy a version
-	echo "deploy"
-
-.PHONY: clean
-clean: ## Clean workspace
-	echo "clean"
+.PHONY: checkstyle
+checkstyle: ##
+	sh -c '.circleci/scripts/validate/checkstyle.sh'
 
 .PHONY: validate-ci
 validate-ci: yamllint shellcheck ktlint ## Validate CI configuration
 #	time make yamllint
 #	time make shellcheck
 
-.PHONY: validate-src 
-validate-src: lint ## Validate Source Code
+.PHONY: validate-src
+validate-src: checkstyle ## Validate Source Code
+
+.PHONY: test-unit
+test-unit: ## Run Unit tests
+	sh -c '.circleci/scripts/test/unit.sh'
+
+.PHONY: test-coverage
+test-coverage: ## Run test coverage
+	sh -c '.circleci/scripts/test/coverage.sh'
+
+.PHONY: lint
+lint: validate-ci validate-src ## Run all linters
+
+.PHONY: build
+build: ## Build a version
+	sh -c '.circleci/scripts/build/gradlew.sh'
+
+.PHONY: test
+test: test-unit test-coverage ## Run all tests
+
+.PHONY: deploy
+deploy: ## Deploy a version
+	echo "deploy stub"
+
+.PHONY: clean
+clean: ## Clean workspace
+	./gradlew clean
