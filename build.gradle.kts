@@ -5,11 +5,19 @@ plugins {
     java
     application
     checkstyle
-    id("com.google.osdetector") version "1.6.0"
+    jacoco
+//    id("com.google.osdetector") version "1.6.0"
 }
 
+val checkstyleVersion by extra { "8.13" }
+val jacocoVersion by extra { "0.8.2" }
+
 checkstyle {
-    toolVersion = "8.13"
+    toolVersion = checkstyleVersion
+}
+
+jacoco {
+    toolVersion = jacocoVersion
 }
 
 repositories {
@@ -23,15 +31,37 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 }
 
+/*
+tasks{
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
 }
 
-tasks.create("os") {
-    doLast {
-        println("osdetector.os: " + osdetector.os)
-        println("osdetector.arch: " + osdetector.arch)
-        println("osdetector.release: " + osdetector.release)
+val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::class) {
+    violationRules {
+        rule { limit { minimum = BigDecimal.valueOf(0.7) } }
+    }
+    val check by tasks
+    check.dependsOn(this)
+}
+
+val os by tasks.creating {
+    println("osdetector.os: " + osdetector.os)
+    println("osdetector.arch: " + osdetector.arch)
+    println("osdetector.release: " + osdetector.release)
+}
+*/
+
+tasks {
+    "test"(Test::class) {
+        useJUnitPlatform()
+    }
+    "jacocoTestCoverageVerification"(JacocoCoverageVerification::class) {
+        violationRules {
+            rule { limit { minimum = BigDecimal.valueOf(0.7) } }
+        }
+        val check by tasks
+        check.dependsOn(this)
     }
 }
 

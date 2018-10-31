@@ -16,9 +16,7 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: |
-            make validate-ci
-            make validate-src
+          command: make lint
 
   test:
     working_directory: ~/work

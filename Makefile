@@ -8,8 +8,6 @@
 help: ## Print this help
 	@echo "List of available commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-#	Replace own self-documented Makefile to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-#	@grep "^[A-z]*:.#" $(MAKEFILE_LIST) | sed "s/[:,#]//g"
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 
@@ -25,30 +23,49 @@ shellcheck: ## Run Shellcheck
 ktlint: ## Run an anti-bikeshedding Kotlin linter
 	sh -c '.circleci/scripts/validate/ktlint.sh'
 
-.PHONY: lint
-lint: ## Run linters for source code
-	sh -c '.circleci/scripts/validate/lint.sh'
-
-.PHONY: build
-build: ## Build a version
-	sh -c '.circleci/scripts/build/gradlew.sh'
-
-.PHONY: test
-test: ## Run all tests
-	sh -c '.circleci/scripts/test/unit.sh'
-
-.PHONY: deploy
-deploy: ## Deploy a version
-	echo "deploy"
-
-.PHONY: clean
-clean: ## Clean workspace
-	echo "clean"
+.PHONY: checkstyle
+checkstyle: ##
+	sh -c '.circleci/scripts/validate/checkstyle.sh'
 
 .PHONY: validate-ci
 validate-ci: yamllint shellcheck ktlint ## Validate CI configuration
 #	time make yamllint
 #	time make shellcheck
 
-.PHONY: validate-src 
-validate-src: lint ## Validate Source Code
+.PHONY: validate-src
+validate-src: checkstyle ## Validate Source Code
+
+.PHONY: test-unit
+test-unit: ## Run Unit tests
+	sh -c '.circleci/scripts/test/unit.sh'
+
+.PHONY: test-coverage
+test-coverage: ## Run test coverage
+	sh -c '.circleci/scripts/test/coverage.sh'
+
+.PHONY: lint
+lint: validate-ci validate-src ## Run all linters
+
+.PHONY: build
+build: ## Build a version
+	sh -c '.circleci/scripts/build/gradlew.sh'
+
+.PHONY: docs
+docs: ## [stub] Generate documentation
+	echo "docs stub"
+#	sh -c '.circleci/scripts/build/docs.sh'
+
+.PHONY: test
+test: test-unit test-coverage ## Run all tests
+
+.PHONY: release
+release: ## [stub] Deploy a version
+	echo "deploy stub"
+
+.PHONY: deploy
+deploy: ## [stub] Deploy a version
+	echo "deploy stub"
+
+.PHONY: clean
+clean: ## Clean workspace
+	sh -c '.circleci/scripts/clean.sh'

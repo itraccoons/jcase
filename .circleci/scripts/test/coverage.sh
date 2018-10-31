@@ -13,9 +13,9 @@ set -x
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c='sh -c'
 
-echo "Running Unit Test Script:"
-echo "Running Unit Test Script:"echo "Unit tests with Gradle Wrapper"
+echo "Running Test Coverage Script:"
+echo "Test coverage with Gradle Wrapper"
 
-${sh_c} './gradlew test --console=plain'
+${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification --console=plain'
 
 set +x
