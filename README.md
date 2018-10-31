@@ -1,13 +1,11 @@
 # R-edu: JCase // Learning Java
 This repository is my start point of learning Java.
-For now my JCase has a lot of gaps, stubs or blackouts after 60 hours of
+For now my JCase has a lot of gaps, stubs or blackouts after 80 hours of
 searching, reading, watching, trying, coding, sicking, whatever-ing...
 
 Actually no Java code present - just simple peace of code to make IDE, build and CI work.
-My Circle based on java.awt.Point with some sort of overloading.
 
 Unfortunately no OOP learning has been started yet but flashbacks and brain digging already in place.
-
 
 ### Development Environment
 
@@ -36,11 +34,15 @@ List all the available targets:
     List of available commands:
     build                          Build a version
     clean                          Clean workspace
-    deploy                         Deploy a version
+    deploy                         [stub] Deploy a version
+    docs                           [stub] Generate documentation
     help                           Print this help
     ktlint                         Run an anti-bikeshedding Kotlin linter
-    lint                           Run linters for source code
+    lint                           Run all linters
+    release                        [stub] Release a version
     shellcheck                     Run Shellcheck
+    test-coverage                  Run test coverage
+    test-unit                      Run Unit tests
     test                           Run all tests
     validate-ci                    Validate CI configuration
     validate-src                   Validate Source Code

@@ -8,8 +8,6 @@
 help: ## Print this help
 	@echo "List of available commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-#	Replace own self-documented Makefile to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-#	@grep "^[A-z]*:.#" $(MAKEFILE_LIST) | sed "s/[:,#]//g"
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 
@@ -52,13 +50,22 @@ lint: validate-ci validate-src ## Run all linters
 build: ## Build a version
 	sh -c '.circleci/scripts/build/gradlew.sh'
 
+.PHONY: docs
+docs: ## [stub] Generate documentation
+	echo "docs stub"
+#	sh -c '.circleci/scripts/build/docs.sh'
+
 .PHONY: test
 test: test-unit test-coverage ## Run all tests
 
+.PHONY: release
+release: ## [stub] Deploy a version
+	echo "deploy stub"
+
 .PHONY: deploy
-deploy: ## Deploy a version
+deploy: ## [stub] Deploy a version
 	echo "deploy stub"
 
 .PHONY: clean
 clean: ## Clean workspace
-	./gradlew clean
+	sh -c '.circleci/scripts/clean.sh'

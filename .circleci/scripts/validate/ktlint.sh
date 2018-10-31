@@ -10,9 +10,12 @@ set -e
 # Print commands and their arguments as they are executed
 set -x
 
-echo "Running Kotlin Linter Script:"
+# Using 'sh -c' can avoid situation then VCS do not preserves file permissions
+sh_c='sh -c'
 
+echo "Running Kotlin Linter Script:"
 echo "Kotlin audit"
+
 find . -type f -name "*.kts" -exec .circleci/scripts/validate/ktlint {} +
 #find . -type f -name "*.kts" | xargs .circleci/scripts/validate/ktlint
 
