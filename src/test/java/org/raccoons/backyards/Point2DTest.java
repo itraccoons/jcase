@@ -69,9 +69,9 @@ class Point2DTest {
   }
 
   @Test
-  void cloneFailsIfObjectsNotEquival() {
+  void cloneFailsIfObjectsNotEquial() {
     try {
-      testPoint = (Point2D) expectedPoint.clone();
+      testPoint = expectedPoint.clone();
     } catch (CloneNotSupportedException e) {
       throw new InternalError(e);
     }

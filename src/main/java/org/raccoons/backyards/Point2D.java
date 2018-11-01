@@ -47,12 +47,8 @@ public class Point2D implements Cloneable {
   }
 
   @Override
-  protected Object clone() throws CloneNotSupportedException {
-//    try {
-      return super.clone();
-//    } catch (CloneNotSupportedException e) {
-//      throw new InternalError(e);
-//    }
+  protected Point2D clone() throws CloneNotSupportedException {
+    return (Point2D) super.clone();
   }
 
   /**
