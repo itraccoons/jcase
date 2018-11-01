@@ -1,9 +1,11 @@
 package org.raccoons.backyards;
 
+import java.io.Serializable;
+
 @SuppressWarnings("WeakerAccess"
 )
 
-public class Point2D {
+public class Point2D implements Cloneable {
 
   /*
    * The x and y coordinates
@@ -33,8 +35,7 @@ public class Point2D {
   }
 
   public void setLocation(Point2D p) {
-    this.coordinateX = p.getX();
-    this.coordinateY = p.getY();
+    setLocation(p.getX(), p.getY());
   }
 
   public double getX() {
@@ -46,15 +47,24 @@ public class Point2D {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (obj == this) {
-      return true;
+  protected Point2D clone() throws CloneNotSupportedException {
+    return (Point2D) super.clone();
+  }
+
+  /**
+   *  Compares two points for equality. This returns true if they have the
+   * same coordinates.
+   *
+   * @param o the point to compare
+   * @return true if it is equal
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (! (o instanceof Point2D)) {
+      return false;
     }
-    if (obj instanceof Point2D) {
-      Point2D p = (Point2D)obj;
-      return getX() == p.getX() && getY() == p.getY();
-    }
-    return false;
+    Point2D p = (Point2D) o;
+    return getX() == p.getX() && getY() == p.getY();
   }
 
   @Override

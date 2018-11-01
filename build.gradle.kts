@@ -1,71 +1,66 @@
-/*
- *
- */
 plugins {
     java
+    jacoco
     application
     checkstyle
-    jacoco
-//    id("com.google.osdetector") version "1.6.0"
 }
 
-val checkstyleVersion by extra { "8.13" }
+val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
+val checkstyleVersion by extra { "8.13" }
 
-checkstyle {
-    toolVersion = checkstyleVersion
+dependencies {
+    testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
 }
 
 jacoco {
     toolVersion = jacocoVersion
 }
 
-repositories {
-    mavenCentral()
-    jcenter()
+checkstyle {
+    toolVersion = checkstyleVersion
 }
 
-dependencies {
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.3.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
-}
+allprojects {
+    group = "org.raccoons"
+    version = "0.1b1"
 
-/*
-tasks{
-val test by tasks.getting(Test::class) {
-    useJUnitPlatform()
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 }
 
 val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::class) {
     violationRules {
-        rule { limit { minimum = BigDecimal.valueOf(0.7) } }
+        rule {
+            element = "BUNDLE"
+            limit {
+                minimum = BigDecimal.valueOf(0.6)
+            }
+        }
+        rule {
+            element = "CLASS"
+            excludes = listOf("*TransformationJCase")
+            limit {
+                minimum = BigDecimal.valueOf(0.8)
+            }
+        }
     }
     val check by tasks
     check.dependsOn(this)
 }
 
-val os by tasks.creating {
-    println("osdetector.os: " + osdetector.os)
-    println("osdetector.arch: " + osdetector.arch)
-    println("osdetector.release: " + osdetector.release)
-}
-*/
-
-tasks {
-    "test"(Test::class) {
-        useJUnitPlatform()
-    }
-    "jacocoTestCoverageVerification"(JacocoCoverageVerification::class) {
-        violationRules {
-            rule { limit { minimum = BigDecimal.valueOf(0.7) } }
-        }
-        val check by tasks
-        check.dependsOn(this)
-    }
+val jacocoTestReport by tasks.getting(JacocoReport::class) {
+    reports.html.isEnabled = true
 }
 
-version = "0.1.0"
+val test by tasks.getting(Test::class) {
+    useJUnitPlatform()
+    // finalizedBy(jacocoTestReport)
+}
 
 application {
     mainClassName = "org.raccoons.backyards.TransformationJCase"
