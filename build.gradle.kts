@@ -35,7 +35,7 @@ allprojects {
 
 val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::class) {
     violationRules {
-        rule{
+        rule {
             element = "BUNDLE"
             limit {
                 minimum = BigDecimal.valueOf(0.6)
@@ -59,7 +59,7 @@ val jacocoTestReport by tasks.getting(JacocoReport::class) {
 
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
-    //finalizedBy(jacocoTestReport)
+    // finalizedBy(jacocoTestReport)
 }
 
 application {
