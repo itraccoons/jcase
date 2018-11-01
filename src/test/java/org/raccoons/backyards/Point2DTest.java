@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("WeakerAccess"
 )
 class Point2DTest {
+  private Point2D expectedPoint;
   private Point2D testPoint;
 
   @BeforeEach
   public void init() {
-    testPoint = new Point2D(9, 23);
+    expectedPoint = new Point2D(0.1d, 0.2d);
+    testPoint = new Point2D();
   }
 
   @Test
@@ -28,25 +30,53 @@ class Point2DTest {
 
   @Test
   void testSetLocationWithDouble() {
-    testPoint.setLocation(1, 1);
-    Assertions.assertEquals(1, testPoint.getX());
-    Assertions.assertEquals(1, testPoint.getY());
+    testPoint.setLocation(0.1d, 0.2d);
+    Assertions.assertEquals(0.1, testPoint.getX());
+    Assertions.assertEquals(0.2, testPoint.getY());
   }
 
   @Test
   void testSetLocationWithPoint2D() {
-    Point2D p = new Point2D(1, 1);
-    testPoint.setLocation(p);
-    Assertions.assertEquals(p, testPoint);
+    testPoint.setLocation(expectedPoint);
+    Assertions.assertEquals(expectedPoint, testPoint);
   }
 
   @Test
-  void getX() {
-    Assertions.assertEquals(9, testPoint.getX());
+  void testGetX() {
+    Assertions.assertEquals(0, testPoint.getX());
   }
 
   @Test
-  void getY() {
-    Assertions.assertEquals(23, testPoint.getY());
+  void testGetY() {
+    Assertions.assertEquals(0, testPoint.getY());
   }
+
+  @Test
+  void testToString() {
+    String expectedString = "org.raccoons.backyards.Point2D[x=0.0,y=0.0]";
+    Assertions.assertEquals(expectedString, testPoint.toString());
+  }
+
+  @Test
+  void equalsFailsIfWrongObjectProvided() {
+    Object testObject = new Object();
+    Assertions.assertFalse(expectedPoint.equals(testObject));
+  }
+
+  @Test
+  void equalsFailsIfNoLogicalEquivalence() {
+    Assertions.assertFalse(testPoint.equals(expectedPoint));
+  }
+
+  @Test
+  void cloneFailsIfObjectsNotEquival() {
+    try {
+      testPoint = (Point2D) expectedPoint.clone();
+    } catch (CloneNotSupportedException e) {
+      throw new InternalError(e);
+    }
+    Assertions.assertEquals(expectedPoint, testPoint);
+  }
+
+
 }
