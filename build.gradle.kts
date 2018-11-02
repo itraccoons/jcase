@@ -61,7 +61,7 @@ val jacocoTestReport by tasks.getting(JacocoReport::class) {
 
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
-    // finalizedBy(jacocoTestReport)
+    finalizedBy(jacocoTestReport)
 }
 
 application {
