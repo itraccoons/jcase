@@ -1,7 +1,5 @@
 package org.raccoons.backyards;
 
-import java.io.Serializable;
-
 @SuppressWarnings("WeakerAccess"
 )
 
