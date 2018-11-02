@@ -3,6 +3,8 @@ plugins {
     jacoco
     application
     checkstyle
+    `project-report`
+    `build-dashboard`
 }
 
 val junitApiVersion by extra { "5.3.1" }
@@ -59,7 +61,7 @@ val jacocoTestReport by tasks.getting(JacocoReport::class) {
 
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
-    // finalizedBy(jacocoTestReport)
+    finalizedBy(jacocoTestReport)
 }
 
 application {
