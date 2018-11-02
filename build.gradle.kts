@@ -3,7 +3,8 @@ plugins {
     jacoco
     application
     checkstyle
-    "project-report"
+    `project-report`
+    `build-dashboard`
 }
 
 val junitApiVersion by extra { "5.3.1" }
