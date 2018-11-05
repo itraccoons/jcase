@@ -1,8 +1,0 @@
-FROM    debian:stable-slim
-
-RUN     apt-get update && \
-        apt-get -y install make shellcheck yamllint && \
-        apt-get clean
-
-WORKDIR /work
-CMD     bash
