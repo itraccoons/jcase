@@ -1,4 +1,4 @@
-FROM    debian:stretch-slim
+FROM    circleci:openjdk:11-jdk
 
 RUN     apt-get update && \
         apt-get -y install make shellcheck yamllint && \
