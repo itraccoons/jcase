@@ -8,7 +8,7 @@ jobs:
 
   validate:
     working_directory: ~/work
-    docker: [{image: 'circleci/openjdk:10-jdk'}]
+    docker: [{image: 'stable-git'}]
     steps:
       - checkout
       - setup_remote_docker:
@@ -16,7 +16,13 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: make lint
+          command: | 
+            dockerfile=.circleci/dockerfiles/Dockerfile.lint
+            echo "COPY . ." >> $dockerfile
+            docker build -f $dockerfile --tag jcase-validator:$CIRCLE_BUILD_NUM .
+            docker run --rm \
+                jcase-validator:$CIRCLE_BUILD_NUM \
+                make lint
 
   test:
     working_directory: ~/work

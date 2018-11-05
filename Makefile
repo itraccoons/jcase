@@ -69,3 +69,7 @@ deploy: ## [stub] Deploy a version
 .PHONY: clean
 clean: ## Clean workspace
 	sh -c '.circleci/scripts/clean.sh'
+
+.PHONY: open
+open: ## [*] Open Build Dashboard (macOS local job)
+	sh -c 'open build/reports/buildDashboard/index.html'
