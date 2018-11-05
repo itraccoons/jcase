@@ -15,8 +15,8 @@ set -x
 
 echo "Running Kotlin Linter Script:"
 echo "Kotlin audit"
-
-find . -type f -name "*.kts" -exec .circleci/scripts/validate/ktlint {} +
-#find . -type f -name "*.kts" | xargs .circleci/scripts/validate/ktlint
+.circleci/tools/ktlint --version
+find . -type f -name "*.kts" -exec .circleci/tools/ktlint {} +
+#find . -type f -name "*.kts" | xargs .circleci/tools/ktlint
 
 set +x
