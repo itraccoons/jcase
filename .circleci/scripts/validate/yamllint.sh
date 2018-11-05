@@ -12,7 +12,8 @@ set -x
 
 echo "Running YAML Lint Script:"
 echo "YAML audit"
+yamllint --version
 #need to add yamllint to dockerimage
-yamllint .circleci/config.yml
+#yamllint .circleci/config.yml
 
 set +x
