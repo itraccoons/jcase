@@ -8,11 +8,10 @@ jobs:
 
   validate:
     working_directory: ~/work
-    docker: [{image: 'circleci/openjdk:10-jdk'}]
+    docker: [{image: '18.06.0-ce-git'}]
     steps:
       - checkout
       - setup_remote_docker:
-          version: stable-git
           reusable: true
           exclusive: false
       - run:
