@@ -8,7 +8,7 @@ jobs:
 
   validate:
     working_directory: ~/work
-    docker: [{image: '17.06-git'}]
+    docker: [{image: 'docker/stable-git'}]
     steps:
       - checkout
       - setup_remote_docker:
