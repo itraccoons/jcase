@@ -28,7 +28,7 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
       * IM Slack
     * Docker Image circleci/openjdk:11-jdk (https://hub.docker.com/r/circleci/openjdk/)
 
-#### CI
+#### Continuous Integration
   * validate with:
   	* yamllint
 	* shellcheck
