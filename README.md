@@ -13,19 +13,20 @@ Unfortunately no OOP learning has been started yet but flashbacks and brain digg
 MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3	
 	    
 #### Software	
-  * OS X Mojave 10.14.1 Beta (18B73a)
+  * OS X Mojave 10.14.2 Beta (18C31g)
   * IDE IntelliJ IDEA 2018.2.5 (Community Edition) (https://www.jetbrains.com/idea/download/#section=mac)
-  * SDK:
-    * java 11.0.1 2018-10-16 LTS (https://www.oracle.com/technetwork/java/javase/downloads/index.html
-    * groovy-2.5.2 (Homebrew)
-  * BUILD MACHINE gradle-4.10.2 (IJ, standalone, docker+ci)
+  * SDK java 11.0.1 2018-10-16 LTS (https://www.oracle.com/technetwork/java/javase/downloads/index.html
+  * BUILD MACHINE gradle-4.10.2 (IJ, standalone, docker+ci):
+    * Kotlin DSL:   1.0-rc-6
+    * Kotlin:       1.2.61
+    * Groovy:       2.4.15
+    * Ant:          1.9.11
   * GIT	git version 2.19.1 (Homwbrew)
-  * SCM	GitHub (https://github.com/itraccoons/jcase)
   * CI CircleCI 2.0 (https://circleci.com/gh/itraccoons/jcase)
     * Notifications:
       * App SeaEye 0.5-dev (https://github.com/nolaneo/SeaEye)
       * IM Slack
-    * Docker Image circleci/openjdk:10-jdk (https://hub.docker.com/r/circleci/openjdk/)
+    * Docker Image circleci/openjdk:11-jdk (https://hub.docker.com/r/circleci/openjdk/)
 
 ### Using Makefile locally and in-container
 List all the available targets:
