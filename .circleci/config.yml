@@ -16,13 +16,7 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: | 
-            dockerfile=.circleci/dockerfiles/Dockerfile.lint
-            echo "COPY . ." >> $dockerfile
-            docker build -f $dockerfile --tag jcase-validator:$CIRCLE_BUILD_NUM .
-            docker run --rm \
-                jcase-validator:$CIRCLE_BUILD_NUM \
-                make lint
+          command: apt-get install shellcheck && make lint
 
   test:
     working_directory: ~/work
