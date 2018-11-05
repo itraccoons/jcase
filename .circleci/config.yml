@@ -16,7 +16,9 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: sudo apt-get install shellcheck && make lint
+          command: |
+            sudo apt-get install shellcheck yamllint &&\
+            make lint
 
   test:
     working_directory: ~/work
