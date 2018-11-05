@@ -1,9 +1,8 @@
 FROM    debian:stretch-slim
 
 RUN     apt-get update && \
-        apt-get -y install make shellcheck && \
-        apt-get clean && \
-        pip install yamllint
+        apt-get -y install make shellcheck yamllint && \
+        apt-get clean
 
 WORKDIR /work
 CMD     bash
