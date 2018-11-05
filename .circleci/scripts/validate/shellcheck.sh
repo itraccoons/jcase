@@ -12,8 +12,7 @@ set -x
 
 echo "Running Shellcheck Script:"
 echo "ShellCheck audit"
-
-#need to add shellcheck to dockerimage
-#find .circleci/scripts/ -type f -name "*.sh" -exec shellcheck {} +
+shellcheck --version
+find .circleci/scripts/ -type f -name "*.sh" -exec shellcheck {} +
 
 set +x

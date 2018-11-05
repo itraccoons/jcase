@@ -8,7 +8,7 @@ jobs:
 
   validate:
     working_directory: ~/work
-    docker: [{image: 'circleci/openjdk:10-jdk'}]
+    docker: [{image: 'circleci/openjdk:11-jdk'}]
     steps:
       - checkout
       - setup_remote_docker:
@@ -16,36 +16,29 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: make lint
+          command: |
+            sudo apt-get install shellcheck yamllint &&\
+            make lint
 
   test:
     working_directory: ~/work
-    docker: [{image: 'circleci/openjdk:10-jdk'}]
+    docker: [{image: 'circleci/openjdk:11-jdk'}]
     steps:
-    - checkout
-    - setup_remote_docker
-    - run:
-        name: "Unit test phase"
-        command: make test
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Unit test phase"
+          command: make test
 
   build:
     working_directory: ~/work
-    docker: [{image: 'circleci/openjdk:10-jdk'}]
+    docker: [{image: 'circleci/openjdk:11-jdk'}]
     steps:
       - checkout
       - setup_remote_docker
       - run:
           name: "Build phase"
           command: make build
-
-#  test:
-#    working_directory: /work
-#    docker: [{image: 'docker:17.06-git'}]
-#    steps:
-#      - checkout
-#      - setup_remote_docker
-#      - run:
-#          name: "Test"
 
       - store_artifacts:
           path: ~/work/artifacts
