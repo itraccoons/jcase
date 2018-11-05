@@ -11,7 +11,7 @@ set -e
 set -x
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
-sh_c='sh -c'
+#sh_c='sh -c'
 
 echo "Running Kotlin Linter Script:"
 echo "Kotlin audit"
