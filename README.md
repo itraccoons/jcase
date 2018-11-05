@@ -29,15 +29,17 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
     * Docker Image circleci/openjdk:11-jdk (https://hub.docker.com/r/circleci/openjdk/)
 
 #### CI
-  * validate
+  * validate:
   	* yamllint
 	* shellcheck
 	* checkstyle
 	* ktlint
-  * test
-    * junit5
-    * jacoco
-  * build
+  * test:
+    * gradlew:
+      * junit5
+      * jacoco
+      * build-dashboard
+  * build:
 	* gradlew
 
 ### Using Makefile locally and in-container
