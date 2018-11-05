@@ -24,11 +24,11 @@ jobs:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:11-jdk'}]
     steps:
-    - checkout
-    - setup_remote_docker
-    - run:
-        name: "Unit test phase"
-        command: make test
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Unit test phase"
+          command: make test
 
   build:
     working_directory: ~/work
@@ -39,15 +39,6 @@ jobs:
       - run:
           name: "Build phase"
           command: make build
-
-#  test:
-#    working_directory: /work
-#    docker: [{image: 'docker:17.06-git'}]
-#    steps:
-#      - checkout
-#      - setup_remote_docker
-#      - run:
-#          name: "Test"
 
       - store_artifacts:
           path: ~/work/artifacts
