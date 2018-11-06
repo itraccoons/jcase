@@ -13,9 +13,20 @@ plugins {
     `build-dashboard`
 }
 
+allprojects {
+    group = "org.raccoons"
+    version = "0.1b1"
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
 /*
  * Create read-only ext variables
  */
+val guavaVersion by extra { "27.0-jre" }
 val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
 val checkstyleVersion by extra { "8.13" }
@@ -24,6 +35,7 @@ val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.8 }
 
 dependencies {
+    compile("com.google.guava:guava:" + guavaVersion)
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
@@ -36,16 +48,6 @@ jacoco {
 checkstyle {
     toolVersion = checkstyleVersion
     configFile = rootProject.file(checkstyleConfigFile)
-}
-
-allprojects {
-    group = "org.raccoons"
-    version = "0.1b1"
-
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
 }
 
 application {
