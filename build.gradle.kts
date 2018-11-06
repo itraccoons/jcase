@@ -6,11 +6,13 @@
 
 plugins {
     java
-    jacoco // Java Code Coverage Library
     application
     checkstyle // Static code analysis for Java source code
+    jacoco // Java Code Coverage Library
     `project-report`
     `build-dashboard`
+    // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55, bytecode issue
+    // findbugs
 }
 
 allprojects {
@@ -20,29 +22,36 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
+        google()
     }
 }
 
 /*
  * Create read-only ext variables
  */
+val checkstyleVersion by extra { "8.13" }
+val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
 val guavaVersion by extra { "27.0-jre" }
 val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
-val checkstyleVersion by extra { "8.13" }
-val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
 val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.8 }
+val spotbugsVersion by extra { "3.1.3" }
 
 dependencies {
-    compile("com.google.guava:guava:" + guavaVersion)
+    // compile("com.google.guava:guava:" + guavaVersion)
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
 }
 
-jacoco {
-    toolVersion = jacocoVersion
+java {
+    targetCompatibility = JavaVersion.VERSION_1_10
+    sourceCompatibility = JavaVersion.VERSION_1_10
+}
+
+application {
+    mainClassName = "org.raccoons.backyards.TransformationJCase"
 }
 
 checkstyle {
@@ -50,10 +59,15 @@ checkstyle {
     configFile = rootProject.file(checkstyleConfigFile)
 }
 
-application {
-    mainClassName = "org.raccoons.backyards.TransformationJCase"
+jacoco {
+    toolVersion = jacocoVersion
 }
 
+/*
+ * spotbugs {
+ *     toolVersion = spotbugsVersion
+ * }
+ */
 /*
  * Enable required Checkstyle reports formats (HTML, XML).
  * Note: build-dashboard plugin depends on these setting
@@ -67,6 +81,13 @@ tasks.withType<Checkstyle> {
      *   xml.isEnabled = false
      * }
      */
+}
+
+tasks.withType<FindBugs> {
+    reports.html.isEnabled = true
+    reports.xml.isEnabled = false
+    reports.text.isEnabled = false
+    reports.emacs.isEnabled = false
 }
 
 /*
