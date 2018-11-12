@@ -11,7 +11,7 @@ plugins {
     jacoco // Java Code Coverage Library
     `project-report`
     `build-dashboard`
-    id ("com.github.kt3k.coveralls") version "2.6.3"
+    id("com.github.kt3k.coveralls") version "2.6.3"
     // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55
     // findbugs
 }
