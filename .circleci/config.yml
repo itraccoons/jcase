@@ -9,10 +9,6 @@ jobs:
   validate:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:11-jdk'}]
-      environment:
-        CI: true
-        CIRCLECI: true
-        COVERALLS_REPO_TOKEN: WbqZA8Q0UCgvSqMgaEpbMCgqr46thjrPL
     steps:
       - checkout
       - setup_remote_docker:
@@ -27,11 +23,15 @@ jobs:
   test:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:11-jdk'}]
+      environment:
+        CI: true
+        CIRCLECI: true
+        COVERALLS_REPO_TOKEN: WbqZA8Q0UCgvSqMgaEpbMCgqr46thjrPL
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: "Unit test phase"
+          name: "Test phase"
           command: make test
 
   build:
