@@ -16,8 +16,6 @@ sh_c='sh -c'
 echo "Running Test Coverage Script:"
 echo "Test coverage with Gradle Wrapper"
 
-coveralls_env='CI=true CIRCLECI=true COVERALLS_REPO_TOKEN=WbqZA8Q0UCgvSqMgaEpbMCgqr46thjrPL'
-
-${sh_c} '${coveralls_env} ./gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --console=plain'
+${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --console=plain'
 
 set +x
