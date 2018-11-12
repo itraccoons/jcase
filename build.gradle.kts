@@ -11,6 +11,7 @@ plugins {
     jacoco // Java Code Coverage Library
     `project-report`
     `build-dashboard`
+    id ("com.github.kt3k.coveralls") version "2.6.3"
     // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55
     // findbugs
 }
@@ -35,7 +36,7 @@ val guavaVersion by extra { "27.0-jre" }
 val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
 val minimumBundleCoverage by extra { 0.6 }
-val minimumClassCoverage by extra { 0.8 }
+val minimumClassCoverage by extra { 0.6 }
 val spotbugsVersion by extra { "3.1.3" }
 
 dependencies {
@@ -94,11 +95,12 @@ tasks.withType<FindBugs> {
 
 /*
  * Enable required JaCoCo reports formats (HTML, XML, CSV).
- * Note: build-dashboard plugin depends on these setting
+ * Note: build-dashboard plugin depends on these setting;
+ * coveralls plugin depends on xml format report
  */
 val jacocoTestReport by tasks.getting(JacocoReport::class) {
     reports.html.isEnabled = true
-    reports.xml.isEnabled = false
+    reports.xml.isEnabled = true
     reports.csv.isEnabled = false
 }
 
