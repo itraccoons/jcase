@@ -11,7 +11,7 @@ plugins {
     jacoco // Java Code Coverage Library
     `project-report`
     `build-dashboard`
-    // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55, bytecode issue
+    // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55
     // findbugs
 }
 
@@ -45,10 +45,12 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
 }
 
-java {
-    targetCompatibility = JavaVersion.VERSION_1_10
-    sourceCompatibility = JavaVersion.VERSION_1_10
-}
+/*
+ * java {
+ *     targetCompatibility = JavaVersion.VERSION_1_10
+ *     sourceCompatibility = JavaVersion.VERSION_1_10
+ * }
+ */
 
 application {
     mainClassName = "org.raccoons.backyards.TransformationJCase"
