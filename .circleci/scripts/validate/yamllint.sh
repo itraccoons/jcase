@@ -13,6 +13,6 @@ set -x
 echo "Running YAML Lint Script:"
 echo "YAML audit"
 yamllint --version
-yamllint .circleci/config.yml
+find . -type f -name "*.yml" -exec yamllint {} +
 
 set +x

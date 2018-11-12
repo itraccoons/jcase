@@ -27,8 +27,12 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: "Unit test phase"
+          name: "Test phase"
           command: make test
+          environment:
+            CI: true
+            CIRCLECI: true
+            COVERALLS_REPO_TOKEN: WbqZA8Q0UCgvSqMgaEpbMCgqr46thjrPL
 
   build:
     working_directory: ~/work

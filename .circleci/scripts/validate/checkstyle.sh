@@ -10,10 +10,13 @@ set -e
 # Print commands and their arguments as they are executed
 set -x
 
-echo "Running Checkstyle Script:"
+# Using 'sh -c' can avoid situation then VCS do not preserves file permissions
+sh_c='sh -c'
 
+echo "Running Checkstyle Script:"
 echo "Google Java Style audit"
 java -jar .circleci/tools/checkstyle-8.13-all.jar -v
 find src/ -type f -name "*.java" -exec java -jar .circleci/tools/checkstyle-8.13-all.jar -c .circleci/tools/google_checks.xml {} +
+${sh_c} './gradlew checkstyleMain checkstyleTest'
 
 set +x

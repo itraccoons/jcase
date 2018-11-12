@@ -17,7 +17,7 @@ echo "Running Build Script:"
 echo "Gradle Tasks"
 
 ${sh_c} './gradlew --version'
-${sh_c} './gradlew build --console=plain -x jacocoTestCoverageVerification'
+${sh_c} './gradlew build projectReport --console=plain -x jacocoTestCoverageVerification'
 ${sh_c} './gradlew javadoc'
 ${sh_c} './gradlew run'
 
