@@ -2,7 +2,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/itraccoons/jcase/badge.svg?branch=master)](https://coveralls.io/github/itraccoons/jcase?branch=master)
 
-[![codecov](https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg)](https://codecov.io/gh/itraccoons/jcase)
+<img src="https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg" />
+<img src="https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=coverage" />
+<img src="https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=alert_status" />
 
 # R-edu: JCase // Learning Java
 This repository is my start point of learning Java.
