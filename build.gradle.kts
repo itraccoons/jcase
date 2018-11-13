@@ -81,7 +81,7 @@ sonarqube {
  */
 tasks.withType<Checkstyle> {
     reports.html.isEnabled = true
-    reports.xml.isEnabled = false
+    reports.xml.isEnabled = true
     /*
      * reports{
      *   html.isEnabled = true
