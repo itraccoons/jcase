@@ -1,8 +1,12 @@
 [![Build Status](https://circleci.com/gh/itraccoons/jcase.svg?style=shield)](https://circleci.com/gh/itraccoons/jcase/tree/master)
 
+[![CircleCI](https://circleci.com/gh/itraccoons/jcase.svg?style=svg)](https://circleci.com/gh/itraccoons/jcase)
+
 [![Coverage Status](https://coveralls.io/repos/github/itraccoons/jcase/badge.svg?branch=master)](https://coveralls.io/github/itraccoons/jcase?branch=master)
 
-<img src="https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg" />
+<a href="https://codecov.io/gh/itraccoons/jcase">
+  <img src="https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg" />
+</a>
 <img src="https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=coverage" />
 <img src="https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=alert_status" />
 
