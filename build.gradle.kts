@@ -72,6 +72,7 @@ sonarqube {
         property("sonar.projectKey", "itraccoons_jcase")
         property("sonar.organization", "itraccoons-github")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.branch.target", "master")
     }
 }
 
