@@ -10,6 +10,8 @@ set -e
 # Print commands and their arguments as they are executed
 set -x
 
+pwd
+
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c='sh -c'
 
@@ -17,5 +19,6 @@ echo "Running Test Coverage Script:"
 echo "Test coverage with Gradle Wrapper"
 
 ${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --console=plain'
+curl -s https://codecov.io/bash | bash
 
 set +x

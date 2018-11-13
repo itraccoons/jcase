@@ -10,6 +10,8 @@ set -e
 # Print commands and their arguments as they are executed
 set -x
 
+pwd
+
 echo "Running YAML Lint Script:"
 echo "YAML audit"
 yamllint --version
