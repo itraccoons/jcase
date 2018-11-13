@@ -11,6 +11,7 @@ set -e
 set -x
 
 pwd
+env
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c='sh -c'
