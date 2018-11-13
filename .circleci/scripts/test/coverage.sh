@@ -19,6 +19,6 @@ echo "Running Test Coverage Script:"
 echo "Test coverage with Gradle Wrapper"
 
 ${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --console=plain'
-bash <(curl -s https://codecov.io/bash)
+curl -s https://codecov.io/bash | bash
 
 set +x
