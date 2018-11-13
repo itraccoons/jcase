@@ -2,6 +2,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/itraccoons/jcase/badge.svg?branch=master)](https://coveralls.io/github/itraccoons/jcase?branch=master)
 
+[![codecov](https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg)](https://codecov.io/gh/itraccoons/jcase)
+
 # R-edu: JCase // Learning Java
 This repository is my start point of learning Java.
 For now my JCase has a lot of gaps, stubs or blackouts after 80 hours of
