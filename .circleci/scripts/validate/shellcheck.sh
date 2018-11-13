@@ -10,6 +10,8 @@ set -e
 # Print commands and their arguments as they are executed
 set -x
 
+pwd
+
 echo "Running Shellcheck Script:"
 echo "ShellCheck audit"
 shellcheck --version
