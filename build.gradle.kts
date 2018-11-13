@@ -88,13 +88,6 @@ tasks.withType<Checkstyle> {
      */
 }
 
-tasks.withType<FindBugs> {
-    reports.html.isEnabled = true
-    reports.xml.isEnabled = false
-    reports.text.isEnabled = false
-    reports.emacs.isEnabled = false
-}
-
 /*
  * Enable required JaCoCo reports formats (HTML, XML, CSV).
  * Note: build-dashboard plugin depends on these setting;
