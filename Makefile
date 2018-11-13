@@ -56,8 +56,7 @@ docs: ## [stub] Generate documentation
 #	sh -c '.circleci/scripts/build/docs.sh'
 
 .PHONY: test
-test: test-unit ## Run all tests
-	[ -f /.dockerenv ] && make test-coverage || echo "test-coverage locally skipped"
+test: test-unit test-coverage ## Run all tests
 
 .PHONY: release
 release: ## [stub] Deploy a version

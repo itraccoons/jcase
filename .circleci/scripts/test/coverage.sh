@@ -19,8 +19,13 @@ sh_c='sh -c'
 echo "Running Test Coverage Script:"
 echo "Test coverage with Gradle Wrapper"
 
-${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls sonarqube --console=plain'
+${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification --console=plain'
 
-curl -s https://codecov.io/bash | bash
+if [ -f /.dockerenv ]; then
+  ${sh_c} './gradlew coveralls sonarqube --console=plain'
+  curl -s https://codecov.io/bash | bash
+else
+  echo "LOCALLY SKIPPED: TestCoverage uploading"
+fi
 
 set +x
