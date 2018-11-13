@@ -23,9 +23,10 @@ ${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --c
 
 curl -s https://codecov.io/bash | bash
 
-${sh_c} "./gradlew sonarqube \
-          -Dsonar.branch.name=${CIRCLE_BRANCH} \
-          -Dsonar.login=${SONARCLOUD_TOKEN} \
-          --console=plain"
+${sh_c} ''./gradlew sonarqube --console=plain'
+
+#          -Dsonar.branch.name=${CIRCLE_BRANCH} \
+#          -Dsonar.login=${SONARCLOUD_TOKEN} \
+#
 
 set +x

@@ -40,6 +40,9 @@ val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.6 }
 val spotbugsVersion by extra { "3.1.3" }
 
+val SONARCLOUD_TOKEN = System.getenv("SONARCLOUD_TOKEN")
+val CIRCLE_BRANCH = System.getenv("CIRCLE_BRANCH")
+
 dependencies {
     // compile("com.google.guava:guava:" + guavaVersion)
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
@@ -72,7 +75,9 @@ sonarqube {
         property("sonar.projectKey", "itraccoons_jcase")
         property("sonar.organization", "itraccoons-github")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.login", SONARCLOUD_TOKEN)
         property("sonar.branch.target", "master")
+        property("sonar.branch.name", CIRCLE_BRANCH)
     }
 }
 
