@@ -64,8 +64,8 @@ jacoco {
 
 sonarqube {
     properties {
-        property("sonar.projectKey", "itraccoons_jcase")
-        property("sonar.organization", "itraccoons-github")
+        property("sonar.projectKey", System.getenv("CIRCLE_PROJECT_USERNAME") + "_" + System.getenv("CIRCLE_PROJECT_REPONAME"))
+        property("sonar.organization", System.getenv("CIRCLE_PROJECT_USERNAME") + "-github")
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.login", System.getenv("SONARCLOUD_TOKEN"))
         property("sonar.branch.name", System.getenv("CIRCLE_BRANCH"))
