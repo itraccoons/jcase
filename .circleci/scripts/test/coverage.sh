@@ -21,7 +21,6 @@ echo "Test coverage with Gradle Wrapper"
 
 ${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --console=plain'
 
-curl -s https://codecov.io/env | bash
 curl -s https://codecov.io/bash | bash
 
 ${sh_c} "./gradlew sonarqube \
