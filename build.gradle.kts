@@ -12,7 +12,7 @@ plugins {
     `project-report`
     `build-dashboard`
     id("com.github.kt3k.coveralls") version "2.6.3"
-    id("org.sonarqube") version "2.6"
+    id("org.sonarqube") version "2.6.2"
     // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55
     // findbugs
 }
@@ -39,9 +39,6 @@ val jacocoVersion by extra { "0.8.2" }
 val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.6 }
 val spotbugsVersion by extra { "3.1.3" }
-
-val SONARCLOUD_TOKEN = System.getenv("SONARCLOUD_TOKEN")
-val CIRCLE_BRANCH = System.getenv("CIRCLE_BRANCH")
 
 dependencies {
     // compile("com.google.guava:guava:" + guavaVersion)
@@ -75,9 +72,9 @@ sonarqube {
         property("sonar.projectKey", "itraccoons_jcase")
         property("sonar.organization", "itraccoons-github")
         property("sonar.host.url", "https://sonarcloud.io")
-        property("sonar.login", SONARCLOUD_TOKEN)
+        property("sonar.login", System.getenv("SONARCLOUD_TOKEN"))
         property("sonar.branch.target", "master")
-        property("sonar.branch.name", CIRCLE_BRANCH)
+        property("sonar.branch.name", System.getenv("CIRCLE_BRANCH"))
     }
 }
 
