@@ -68,7 +68,7 @@ jacoco {
 }
 
 sonarqube {
-    properties{
+    properties {
         property("sonar.projectKey", "itraccoons_jcase")
         property("sonar.organization", "itraccoons-github")
         property("sonar.host.url", "https://sonarcloud.io")
