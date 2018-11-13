@@ -13,8 +13,6 @@ plugins {
     `build-dashboard`
     id("com.github.kt3k.coveralls") version "2.6.3"
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
-    // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55
-    // findbugs
 }
 
 allprojects {
@@ -31,17 +29,16 @@ allprojects {
 /*
  * Create read-only ext variables
  */
+val packageName by extra { "org.raccoons.backyards" }
+val mainClass by extra { "TransformationJCase" }
 val checkstyleVersion by extra { "8.13" }
 val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
-val guavaVersion by extra { "27.0-jre" }
 val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
 val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.6 }
-val spotbugsVersion by extra { "3.1.3" }
 
 dependencies {
-    // compile("com.google.guava:guava:" + guavaVersion)
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
@@ -55,7 +52,7 @@ dependencies {
  */
 
 application {
-    mainClassName = "org.raccoons.backyards.TransformationJCase"
+    mainClassName = packageName + "." + mainClass
 }
 
 checkstyle {
@@ -69,20 +66,15 @@ jacoco {
 
 sonarqube {
     properties {
-        property("sonar.projectKey", "itraccoons_jcase")
-        property("sonar.organization", "itraccoons-github")
+        property("sonar.projectKey", System.getenv("CIRCLE_PROJECT_USERNAME") + "_" + System.getenv("CIRCLE_PROJECT_REPONAME"))
+        property("sonar.organization", System.getenv("CIRCLE_PROJECT_USERNAME") + "-github")
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.login", System.getenv("SONARCLOUD_TOKEN"))
         property("sonar.branch.name", System.getenv("CIRCLE_BRANCH"))
-        // property("sonar.branch.target", "master")
+        // property("sonar.branch.target", "master") // commented because the main(master) branch must not have a target
     }
 }
 
-/*
- * spotbugs {
- *     toolVersion = spotbugsVersion
- * }
- */
 /*
  * Enable required Checkstyle reports formats (HTML, XML).
  * Note: build-dashboard plugin depends on these setting
@@ -96,13 +88,6 @@ tasks.withType<Checkstyle> {
      *   xml.isEnabled = false
      * }
      */
-}
-
-tasks.withType<FindBugs> {
-    reports.html.isEnabled = true
-    reports.xml.isEnabled = false
-    reports.text.isEnabled = false
-    reports.emacs.isEnabled = false
 }
 
 /*
@@ -130,7 +115,7 @@ val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::
         }
         rule {
             element = "CLASS"
-            excludes = listOf("*TransformationJCase")
+            excludes = listOf("*" + mainClass)
             limit {
                 minimum = BigDecimal.valueOf(minimumClassCoverage)
             }

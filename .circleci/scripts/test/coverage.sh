@@ -11,6 +11,7 @@ set -e
 set -x
 
 pwd
+env
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c='sh -c'
@@ -24,7 +25,7 @@ if [ -f /.dockerenv ]; then
   ${sh_c} './gradlew coveralls sonarqube --console=plain'
   curl -s https://codecov.io/bash | bash
 else
-  echo "LOCALLY SKIPPED: TestCoverage uploading"
+  echo "LOCALLY SKIPPED: Uploading Test Coverage reports"
 fi
 
 set +x
