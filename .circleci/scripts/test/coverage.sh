@@ -19,14 +19,8 @@ sh_c='sh -c'
 echo "Running Test Coverage Script:"
 echo "Test coverage with Gradle Wrapper"
 
-${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --console=plain'
+${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls sonarqube --console=plain'
 
 curl -s https://codecov.io/bash | bash
-
-${sh_c} './gradlew sonarqube --console=plain'
-
-#          -Dsonar.branch.name=${CIRCLE_BRANCH} \
-#          -Dsonar.login=${SONARCLOUD_TOKEN} \
-#
 
 set +x
