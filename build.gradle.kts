@@ -12,7 +12,7 @@ plugins {
     `project-report`
     `build-dashboard`
     id("com.github.kt3k.coveralls") version "2.6.3"
-    id("org.sonarqube") version "2.6"
+    id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
     // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55
     // findbugs
 }
@@ -65,6 +65,17 @@ checkstyle {
 
 jacoco {
     toolVersion = jacocoVersion
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "itraccoons_jcase")
+        property("sonar.organization", "itraccoons-github")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.login", System.getenv("SONARCLOUD_TOKEN"))
+        property("sonar.branch.name", System.getenv("CIRCLE_BRANCH"))
+        property("sonar.branch.target", "master")
+    }
 }
 
 /*

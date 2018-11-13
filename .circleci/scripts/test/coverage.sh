@@ -17,13 +17,14 @@ sh_c='sh -c'
 
 echo "Running Test Coverage Script:"
 echo "Test coverage with Gradle Wrapper"
+${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification --console=plain'
 
-${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification coveralls --console=plain'
-curl -s https://codecov.io/bash | bash
-${sh_c} "./gradlew sonarqube \
-          -Dsonar.projectKey=itraccoons_jcase \
-          -Dsonar.organization=itraccoons-github \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=5be2f82a04aa8bf3879d1bc64b3aaa60844855ff --console=plain"
+# Upload Test Coverage reports to remote services if job executed inside docker-based CI
+if [ -f /.dockerenv ]; then
+  ${sh_c} './gradlew coveralls sonarqube --console=plain'
+  curl -s https://codecov.io/bash | bash
+else
+  echo "LOCALLY SKIPPED: TestCoverage uploading"
+fi
 
 set +x
