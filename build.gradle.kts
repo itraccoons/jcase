@@ -31,17 +31,11 @@ allprojects {
 /*
  * Create read-only ext variables
  */
-val checkstyleVersion by extra { "8.13" }
-val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
-val guavaVersion by extra { "27.0-jre" }
 val junitApiVersion by extra { "5.3.1" }
-val jacocoVersion by extra { "0.8.2" }
 val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.6 }
-val spotbugsVersion by extra { "3.1.3" }
 
 dependencies {
-    // compile("com.google.guava:guava:" + guavaVersion)
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
@@ -59,12 +53,12 @@ application {
 }
 
 checkstyle {
-    toolVersion = checkstyleVersion
-    configFile = rootProject.file(checkstyleConfigFile)
+    toolVersion = "8.13"
+    configFile = rootProject.file("config/checkstyle/google_checks.xml")
 }
 
 jacoco {
-    toolVersion = jacocoVersion
+    toolVersion = "0.8.2"
 }
 
 sonarqube {
@@ -80,7 +74,7 @@ sonarqube {
 
 /*
  * spotbugs {
- *     toolVersion = spotbugsVersion
+ *     toolVersion = "3.1.3"
  * }
  */
 /*
