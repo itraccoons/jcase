@@ -3,12 +3,12 @@
 [![Coverage Status](https://coveralls.io/repos/github/itraccoons/jcase/badge.svg?branch=master)](https://coveralls.io/github/itraccoons/jcase?branch=master)
 [![codecov](https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg)](https://codecov.io/gh/itraccoons/jcase)
 
-![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=bugs)
-![SonarCloud Code Smells](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=code_smells)
-![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=coverage)
-![SonarCloud Duplicated Lines](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=duplicated_lines_density)
-![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=alert_status)
-![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=vulnerabilities)
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=bugs)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Code Smells](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=code_smells)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=coverage)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Duplicated Lines](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=alert_status)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
 
 # R-edu: JCase // Learning Java
 This repository is my start point of learning Java.
@@ -52,6 +52,8 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
       * junit5
       * jacoco
       * build-dashboard
+      * coveralls
+      * sonarqube
   * build with:
 	* gradlew
 
@@ -83,7 +85,3 @@ Run source code validation
 Build the project
 
 	$ make build
-
-
-  https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/43756480_1194500660718042_3407559282357436416_n.png?_nc_cat=105&_nc_ht=scontent.fhrk1-1.fna&oh=454789711c1d02145e22f8c492a421b5&oe=5C8A76E0" width="240" title="R-edu"
-</p>
