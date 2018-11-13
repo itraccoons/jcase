@@ -3,12 +3,12 @@
 [![Coverage Status](https://coveralls.io/repos/github/itraccoons/jcase/badge.svg?branch=master)](https://coveralls.io/github/itraccoons/jcase?branch=master)
 [![codecov](https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg)](https://codecov.io/gh/itraccoons/jcase)
 
-![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=bugs)
-![SonarCloud Code Smells](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=code_smells)
-![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=coverage)
-![SonarCloud Duplicated Lines](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=duplicated_lines_density)
-![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=alert_status)
-![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=vulnerabilities)
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=bugs)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Code Smells](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=code_smells)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=coverage)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Duplicated Lines](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=alert_status)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=itraccoons_jcase&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=itraccoons_jcase)
 
 # R-edu: JCase // Learning Java
 This repository is my start point of learning Java.
