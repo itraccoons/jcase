@@ -52,6 +52,8 @@ MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3
       * junit5
       * jacoco
       * build-dashboard
+      * coveralls
+      * sonarqube
   * build with:
 	* gradlew
 
@@ -83,7 +85,3 @@ Run source code validation
 Build the project
 
 	$ make build
-
-
-  https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/43756480_1194500660718042_3407559282357436416_n.png?_nc_cat=105&_nc_ht=scontent.fhrk1-1.fna&oh=454789711c1d02145e22f8c492a421b5&oe=5C8A76E0" width="240" title="R-edu"
-</p>
