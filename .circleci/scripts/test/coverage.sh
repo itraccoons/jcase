@@ -11,16 +11,15 @@ set -e
 set -x
 
 pwd
-env
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c='sh -c'
 
 echo "Running Test Coverage Script:"
 echo "Test coverage with Gradle Wrapper"
-
 ${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification --console=plain'
 
+# Upload Test Coverage reports to remote services if job executed inside docker-based CI
 if [ -f /.dockerenv ]; then
   ${sh_c} './gradlew coveralls sonarqube --console=plain'
   curl -s https://codecov.io/bash | bash
