@@ -1,5 +1,4 @@
 [![CircleCI](https://circleci.com/gh/itraccoons/jcase.svg?style=svg)](https://circleci.com/gh/itraccoons/jcase)
-[![Build Status](https://circleci.com/gh/itraccoons/jcase.svg?style=shield)](https://circleci.com/gh/itraccoons/jcase/tree/master)
 
 [![Coverage Status](https://coveralls.io/repos/github/itraccoons/jcase/badge.svg?branch=master)](https://coveralls.io/github/itraccoons/jcase?branch=master)
 [![codecov](https://codecov.io/gh/itraccoons/jcase/branch/master/graph/badge.svg)](https://codecov.io/gh/itraccoons/jcase)
