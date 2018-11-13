@@ -26,8 +26,8 @@ curl -s https://codecov.io/bash | bash
 ${sh_c} "./gradlew sonarqube \
           -Dsonar.projectKey=itraccoons_jcase \
           -Dsonar.organization=itraccoons-github \
-          -Dsonar.branch.name=${CIRCLE_BRANCH} \
-          -Dsonar.branch.target=master \
+#          -Dsonar.branch.name=${CIRCLE_BRANCH} \
+#          -Dsonar.branch.target=master \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=${SONARCLOUD_TOKEN} \
           --console=plain"
