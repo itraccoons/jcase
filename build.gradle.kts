@@ -13,8 +13,6 @@ plugins {
     `build-dashboard`
     id("com.github.kt3k.coveralls") version "2.6.3"
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
-    // id("com.github.spotbugs") version "1.6.5" - Unsupported class file major version 55
-    // findbugs
 }
 
 allprojects {
@@ -31,7 +29,10 @@ allprojects {
 /*
  * Create read-only ext variables
  */
+val checkstyleVersion by extra { "8.13" }
+val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
 val junitApiVersion by extra { "5.3.1" }
+val jacocoVersion by extra { "0.8.2" }
 val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.6 }
 
@@ -53,12 +54,12 @@ application {
 }
 
 checkstyle {
-    toolVersion = "8.13"
-    configFile = rootProject.file("config/checkstyle/google_checks.xml")
+    toolVersion = checkstyleVersion
+    configFile = rootProject.file(checkstyleConfigFile)
 }
 
 jacoco {
-    toolVersion = "0.8.2"
+    toolVersion = jacocoVersion
 }
 
 sonarqube {
@@ -72,11 +73,6 @@ sonarqube {
     }
 }
 
-/*
- * spotbugs {
- *     toolVersion = "3.1.3"
- * }
- */
 /*
  * Enable required Checkstyle reports formats (HTML, XML).
  * Note: build-dashboard plugin depends on these setting
