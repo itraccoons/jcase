@@ -29,6 +29,8 @@ allprojects {
 /*
  * Create read-only ext variables
  */
+val packageName by extra { "org.raccoons.backyards" }
+val mainClass by extra { "TransformationJCase" }
 val checkstyleVersion by extra { "8.13" }
 val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
 val junitApiVersion by extra { "5.3.1" }
@@ -50,7 +52,7 @@ dependencies {
  */
 
 application {
-    mainClassName = "org.raccoons.backyards.TransformationJCase"
+    mainClassName = packageName + "." + mainClass
 }
 
 checkstyle {
@@ -113,7 +115,7 @@ val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::
         }
         rule {
             element = "CLASS"
-            excludes = listOf("*TransformationJCase")
+            excludes = listOf("*" + mainClass)
             limit {
                 minimum = BigDecimal.valueOf(minimumClassCoverage)
             }
