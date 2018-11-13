@@ -24,6 +24,6 @@ ${sh_c} "./gradlew sonarqube \
           -Dsonar.projectKey=itraccoons_jcase \
           -Dsonar.organization=itraccoons-github \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=5be2f82a04aa8bf3879d1bc64b3aaa60844855ff --console=plain"
+          -Dsonar.login=${SONARCLOUD_TOKEN} --console=plain"
 
 set +x
