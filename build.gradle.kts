@@ -72,6 +72,7 @@ sonarqube {
         property("sonar.login", System.getenv("SONARCLOUD_TOKEN"))
         property("sonar.branch.name", System.getenv("CIRCLE_BRANCH"))
         // property("sonar.branch.target", "master") // commented because the main(master) branch must not have a target
+        property("sonar.java.checkstyle.reportPaths","target/main.xml")
     }
 }
 
