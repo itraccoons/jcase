@@ -35,7 +35,7 @@ install_depends()
   case ${os} in
     linux) # install linters inside docker container
 	  lsb_dist="$( get_distribution | tr '[:upper:]' '[:lower:]' )"
-	  if [ "$lsb_dist" = "ubuntu" ] || [ "$lsb_dist" = "debian" ]; then
+	  if [ "$lsb_dist" = "debian" ]; then
         sudo apt-get update
 		sudo apt-get -y install shellcheck yamllint
 	  fi

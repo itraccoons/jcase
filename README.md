@@ -12,10 +12,10 @@
 
 # R-edu: JCase // Learning Java
 This repository is my start point of learning Java.
-For now my JCase has a lot of gaps, stubs or blackouts after 80 hours of
+For now my JCase has a lot of gaps, stubs or blackouts after 120 hours of
 searching, reading, watching, trying, coding, sicking, whatever-ing...
 
-Actually no Java code present - just simple peace of code to make IDE, build and CI work.
+Actually no Java code present - just simple peace of code to make IDE, build, tests and CI work.
 
 Unfortunately no OOP learning has been started yet but flashbacks and brain digging already in place.
 
@@ -25,8 +25,10 @@ Unfortunately no OOP learning has been started yet but flashbacks and brain digg
 MacBook Pro (13-inch, Mid 2012),  2.5 GHz Intel Core i5, 8 GB 1333 MHz DDR3	
 	    
 #### Software	
-  * OS X Mojave 10.14.2 Beta (18C31g)
+  * OS X Mojave 10.14.2 Beta (18C38b)
   * IDE IntelliJ IDEA 2018.2.5 (Community Edition) (https://www.jetbrains.com/idea/download/#section=mac)
+    * Makefile support (https://plugins.jetbrains.com/plugin/9333-makefile-support)
+    * BashSupport (https://plugins.jetbrains.com/plugin/4230-bashsupport)
   * SDK java 11.0.1 2018-10-16 LTS (https://www.oracle.com/technetwork/java/javase/downloads/index.html
   * BUILD MACHINE gradle-4.10.2 (IJ, standalone, docker+ci):
     * Kotlin DSL:   1.0-rc-6
@@ -67,25 +69,31 @@ List all the available targets:
 
 	$ make
     List of available commands:
-    build                          Build a version
-    clean                          Clean workspace
-    deploy                         [stub] Deploy a version
-    docs                           [stub] Generate documentation
-    help                           Print this help
-    ktlint                         Run an anti-bikeshedding Kotlin linter
-    lint                           Run all linters
-    release                        [stub] Release a version
-    shellcheck                     Run Shellcheck
-    test-coverage                  Run test coverage
-    test-unit                      Run Unit tests
-    test                           Run all tests
-    validate-ci                    Validate CI configuration
-    validate-src                   Validate Source Code
-    yamllint                       Run YAML Lint
+	build                          Build a version
+	clean                          Clean workspace
+	depends                        Install software dependencies
+	deploy                         [stub] Deploy a version
+	docs                           [stub] Generate documentation
+	help                           Print this help
+	ktlint                         Run an anti-bikeshedding Kotlin linter
+	lint                           Run all linters
+	open                           [*] Open Build Dashboard (macOS local job)
+	release                        [stub] Deploy a version
+	shellcheck                     Run Shellcheck
+	test-coverage                  Run test coverage
+	test-unit                      Run Unit tests
+	test                           Run all tests
+	validate-ci                    Validate CI configuration
+	validate-src                   Validate Source Code
+	yamllint                       Run YAML Lint
 
-Run source code validation
+Execute validation with Static Code Analysis
 
-	$ make validate-src
+	$ make lint
+
+Run all tests
+
+	$ make test
 
 Build the project
 
