@@ -12,11 +12,11 @@ help: ## Print this help
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 
 .PHONY: yamllint
-yamllint: ## Run YAML Lint
+yamllint: depends ## Run YAML Lint
 	sh -c '.circleci/scripts/validate/yamllint.sh'
 
 .PHONY: shellcheck
-shellcheck: ## Run Shellcheck
+shellcheck: depends ## Run Shellcheck
 	sh -c '.circleci/scripts/validate/shellcheck.sh'
 
 .PHONY: ktlint
@@ -29,8 +29,6 @@ checkstyle: ##
 
 .PHONY: validate-ci
 validate-ci: yamllint shellcheck ktlint ## Validate CI configuration
-#	time make yamllint
-#	time make shellcheck
 
 .PHONY: validate-src
 validate-src: checkstyle ## Validate Source Code
@@ -42,6 +40,10 @@ test-unit: ## Run Unit tests
 .PHONY: test-coverage
 test-coverage: ## Run test coverage
 	sh -c '.circleci/scripts/test/coverage.sh'
+
+.PHONY: depends
+depends: ## Install software dependencies
+	sh -c '.circleci/scripts/depends.sh'
 
 .PHONY: lint
 lint: validate-ci validate-src ## Run all linters
