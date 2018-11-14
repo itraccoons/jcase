@@ -1,5 +1,5 @@
 # Makefile based wrapper for automating building Java Projects
-# with Gradle locally and with Docker on CircleCI
+# with Gradle locally and within Docker on CircleCI
 # Written by: Oleksii Kucheruk <ok@raccoons.co> on Fri Oct 5 2018
 
 .DEFAULT_GOAL := help
@@ -12,11 +12,11 @@ help: ## Print this help
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 
 .PHONY: yamllint
-yamllint: depends ## Run YAML Lint
+yamllint: depends ## Run linter for YAML files
 	sh -c '.circleci/scripts/validate/yamllint.sh'
 
 .PHONY: shellcheck
-shellcheck: depends ## Run Shellcheck
+shellcheck: depends ## Run static analysis of shell scripts
 	sh -c '.circleci/scripts/validate/shellcheck.sh'
 
 .PHONY: ktlint
@@ -24,7 +24,7 @@ ktlint: ## Run an anti-bikeshedding Kotlin linter
 	sh -c '.circleci/scripts/validate/ktlint.sh'
 
 .PHONY: checkstyle
-checkstyle: ##
+checkstyle: ## Run static code analysis of Java source code
 	sh -c '.circleci/scripts/validate/checkstyle.sh'
 
 .PHONY: validate-ci

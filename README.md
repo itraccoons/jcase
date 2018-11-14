@@ -70,6 +70,7 @@ List all the available targets:
 	$ make
     List of available commands:
 	build                          Build a version
+	checkstyle                     Run static code analysis of Java source code
 	clean                          Clean workspace
 	depends                        Install software dependencies
 	deploy                         [stub] Deploy a version
@@ -79,13 +80,13 @@ List all the available targets:
 	lint                           Run all linters
 	open                           [*] Open Build Dashboard (macOS local job)
 	release                        [stub] Deploy a version
-	shellcheck                     Run Shellcheck
+	shellcheck                     Run static analysis of shell scripts
 	test-coverage                  Run test coverage
 	test-unit                      Run Unit tests
 	test                           Run all tests
 	validate-ci                    Validate CI configuration
 	validate-src                   Validate Source Code
-	yamllint                       Run YAML Lint
+	yamllint                       Run linter for YAML files
 
 Execute validation with Static Code Analysis
 
