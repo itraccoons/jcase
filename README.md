@@ -67,25 +67,31 @@ List all the available targets:
 
 	$ make
     List of available commands:
-    build                          Build a version
-    clean                          Clean workspace
-    deploy                         [stub] Deploy a version
-    docs                           [stub] Generate documentation
-    help                           Print this help
-    ktlint                         Run an anti-bikeshedding Kotlin linter
-    lint                           Run all linters
-    release                        [stub] Release a version
-    shellcheck                     Run Shellcheck
-    test-coverage                  Run test coverage
-    test-unit                      Run Unit tests
-    test                           Run all tests
-    validate-ci                    Validate CI configuration
-    validate-src                   Validate Source Code
-    yamllint                       Run YAML Lint
+	build                          Build a version
+	clean                          Clean workspace
+	depends                        Install software dependencies
+	deploy                         [stub] Deploy a version
+	docs                           [stub] Generate documentation
+	help                           Print this help
+	ktlint                         Run an anti-bikeshedding Kotlin linter
+	lint                           Run all linters
+	open                           [*] Open Build Dashboard (macOS local job)
+	release                        [stub] Deploy a version
+	shellcheck                     Run Shellcheck
+	test-coverage                  Run test coverage
+	test-unit                      Run Unit tests
+	test                           Run all tests
+	validate-ci                    Validate CI configuration
+	validate-src                   Validate Source Code
+	yamllint                       Run YAML Lint
 
-Run source code validation
+Execute validation with Static Code Analysis
 
-	$ make validate-src
+	$ make lint
+
+Run all tests
+
+	$ make test
 
 Build the project
 

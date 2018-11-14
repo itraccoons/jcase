@@ -21,7 +21,7 @@ echo "Test coverage with Gradle Wrapper"
 #${sh_c} './gradlew jacocoTestReport jacocoTestCoverageVerification --console=plain'
 ${sh_c} './gradlew check --console=plain'
 
-# Upload Test Coverage reports to remote services if job executed inside docker-based CI
+# Upload Test Coverage reports to remote services if job executed inside docker container at CI
 if [ -f /.dockerenv ]; then
   ${sh_c} './gradlew coveralls sonarqube --console=plain'
   curl -s https://codecov.io/bash | bash
