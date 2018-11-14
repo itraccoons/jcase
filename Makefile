@@ -29,8 +29,6 @@ checkstyle: ##
 
 .PHONY: validate-ci
 validate-ci: yamllint shellcheck ktlint ## Validate CI configuration
-#	time make yamllint
-#	time make shellcheck
 
 .PHONY: validate-src
 validate-src: checkstyle ## Validate Source Code

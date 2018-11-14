@@ -33,14 +33,14 @@ install_depends()
 {
   os="$( uname -s | tr '[:upper:]' '[:lower:]' )"
   case ${os} in
-    linux)
+    linux) # install linters inside docker container
 	  lsb_dist="$( get_distribution | tr '[:upper:]' '[:lower:]' )"
 	  if [ "$lsb_dist" = "ubuntu" ] || [ "$lsb_dist" = "debian" ]; then
         sudo apt-get update
 		sudo apt-get -y install shellcheck yamllint
 	  fi
 	  ;;
-	darwin)
+	darwin) # install linters locally at macOS
 	  for cmd in shellcheck yamllint; do
 	    if ! command_exists ${cmd}; then
 	      brew install ${cmd}
