@@ -16,9 +16,9 @@ jobs:
           exclusive: false
       - run:
           name: "Validate phase"
-          command: |
-            make lint
+          command: make lint
 # Replaced with 'make depends'
+#          command: |
 #            sudo apt-get install shellcheck yamllint && \
 #            make lint
 
