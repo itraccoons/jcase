@@ -77,6 +77,11 @@ sonarqube {
     }
 }
 
+jib {
+    from.image = "circleci/openjdk:11-jdk"
+    to.image = "gcr.io/raccoon1-shell/jcase:" + project.version
+}
+
 /*
  * Enable required Checkstyle reports formats (HTML, XML).
  * Note: build-dashboard plugin depends on these setting
