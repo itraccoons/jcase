@@ -31,25 +31,33 @@ command_exists() {
 
 install_depends()
 {
+  tools=$1
+
   os="$( uname -s | tr '[:upper:]' '[:lower:]' )"
   case ${os} in
     linux) # install linters inside docker container
 	  lsb_dist="$( get_distribution | tr '[:upper:]' '[:lower:]' )"
 	  if [ "$lsb_dist" = "debian" ]; then
         sudo apt-get update
-		sudo apt-get -y install shellcheck yamllint
+        package_manager_install="sudo apt-get -y install"
 	  fi
 	  ;;
 	darwin) # install linters locally at macOS
-	  for cmd in shellcheck yamllint; do
-	    if ! command_exists ${cmd}; then
-	      brew install ${cmd}
-	    fi
-	  done
+	  package_manager_install="brew install"
 	  ;;
   esac
+
+  if [ ! -z "$package_manager_install" ]; then
+    for tool in ${tools}; do
+      if ! command_exists "${tool}"; then
+	    eval "$package_manager_install $tool"
+	  fi
+    done
+   else
+     echo "package_manager_install is undefined"
+   fi
 }
 
 echo "Running Dependencies Script:"
 
-install_depends
+install_depends 'shellcheck yamllint'
