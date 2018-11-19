@@ -14,6 +14,7 @@ plugins {
     id("com.github.kt3k.coveralls") version "2.6.3" // [draft] to remove
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
+    id("org.gretty") version "2.2.0"
 }
 
 allprojects {
@@ -43,6 +44,7 @@ dependencies {
     // implementation("com.google.guava:guava:27.0-jre")
     // implementation("com.google.http-client:google-http-client:1.27.0")
     // implementation("org.apache.httpcomponents:httpclient:4.5.6")
+    implementation("com.google.cloud.tools:jib-core:0.1.0")
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
@@ -90,6 +92,14 @@ jib {
         image = "gcr.io/td-jcase/jcase:" + project.version
         credHelper = "gcr"
     }
+}
+
+gretty {
+    httpEnabled = true
+    httpPort = 8080
+    httpsEnabled = true
+    // httpsPort = 443
+    servletContainer = "jetty9"
 }
 
 /*
