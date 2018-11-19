@@ -40,7 +40,7 @@ val minimumBundleCoverage by extra { 0.6 }
 val minimumClassCoverage by extra { 0.6 }
 
 dependencies {
-    // implementation("com.google.guava:guava:26.0-jre")
+    // implementation("com.google.guava:guava:27.0-jre")
     // implementation("com.google.http-client:google-http-client:1.27.0")
     // implementation("org.apache.httpcomponents:httpclient:4.5.6")
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
@@ -87,7 +87,7 @@ jib {
     }
     */
     to {
-        image = "gcr.io/ts-jcase/jcase:" + project.version
+        image = "gcr.io/td-jcase/jcase:" + project.version
         credHelper = "gcr"
     }
 }
