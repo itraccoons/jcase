@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: td-jcase
+spec:
+  containers:
+  - name: jcase-container
+    image: gcr.io/td-jcase/jcase

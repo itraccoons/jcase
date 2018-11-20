@@ -50,12 +50,10 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
 }
 
-/*
- * java {
- *     targetCompatibility = JavaVersion.VERSION_1_10
- *     sourceCompatibility = JavaVersion.VERSION_1_10
- * }
- */
+java {
+    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
 
 application {
     mainClassName = packageName + "." + mainClass
