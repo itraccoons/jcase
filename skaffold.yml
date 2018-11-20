@@ -3,9 +3,9 @@ apiVersion: skaffold/v1alpha5
 kind: Config
 build:
   artifacts:
-  - image: gcr.io/td-jcase/jcase
-#    context: .
-#    jibGradle: {}
+    - image: gcr.io/td-jcase/jcase
+#      context: .
+#      jibGradle: {}
 deploy:
   kubectl:
     manifests:
