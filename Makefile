@@ -4,28 +4,30 @@
 
 .DEFAULT_GOAL := help
 
+# Using 'sh -c' can avoid situation then VCS do not preserves file permissions
+sh_c := sh -c
+
+
 .PHONY: help
 help: ## Print this help
 	@echo "List of available commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-# Using 'sh -c' can avoid situation then VCS do not preserves file permissions
-
 .PHONY: yamllint
 yamllint: depends ## Run linter for YAML files
-	sh -c '.circleci/scripts/validate/yamllint.sh'
+	$(sh_c) '.circleci/scripts/validate/yamllint.sh'
 
 .PHONY: shellcheck
 shellcheck: depends ## Run static analysis of shell scripts
-	sh -c '.circleci/scripts/validate/shellcheck.sh'
+	$(sh_c) '.circleci/scripts/validate/shellcheck.sh'
 
 .PHONY: ktlint
 ktlint: ## Run an anti-bikeshedding Kotlin linter
-	sh -c '.circleci/scripts/validate/ktlint.sh'
+	$(sh_c) '.circleci/scripts/validate/ktlint.sh'
 
 .PHONY: checkstyle
 checkstyle: ## Run static code analysis of Java source code
-	sh -c '.circleci/scripts/validate/checkstyle.sh'
+	$(sh_c) '.circleci/scripts/validate/checkstyle.sh'
 
 .PHONY: validate-ci
 validate-ci: yamllint shellcheck ktlint ## Validate CI configuration
@@ -33,29 +35,44 @@ validate-ci: yamllint shellcheck ktlint ## Validate CI configuration
 .PHONY: validate-src
 validate-src: checkstyle ## Validate Source Code
 
+
+
 .PHONY: test-unit
 test-unit: ## Run Unit tests
-	sh -c '.circleci/scripts/test/unit.sh'
+	$(sh_c) '.circleci/scripts/test/unit.sh'
 
 .PHONY: test-coverage
 test-coverage: ## Run test coverage
-	sh -c '.circleci/scripts/test/coverage.sh'
+	$(sh_c) '.circleci/scripts/test/coverage.sh'
+
+
 
 .PHONY: depends
 depends: ## Install software dependencies
-	sh -c '.circleci/scripts/depends.sh'
+	$(sh_c) '.circleci/scripts/depends.sh'
+
+
+
+.PHONY: build-code
+build-code: ## Build  Code
+	$(sh_c) '.circleci/scripts/build/gradlew.sh'
+
+.PHONY: build-docs
+build-docs: ## [stub] Generate documentation
+	echo "build docs stub"
+#	$(sh_c) '.circleci/scripts/build/docs.sh'
+
+.PHONY: build-image
+build-image: ##
+	$(sh_c) '.circleci/scripts/build/skaffold.sh'
+
+
 
 .PHONY: lint
 lint: validate-ci validate-src ## Run all linters
 
 .PHONY: build
-build: ## Build a version
-	sh -c '.circleci/scripts/build/gradlew.sh'
-
-.PHONY: docs
-docs: ## [stub] Generate documentation
-	echo "docs stub"
-#	sh -c '.circleci/scripts/build/docs.sh'
+build: build-code ## Build a version
 
 .PHONY: test
 test: test-unit test-coverage ## Run all tests
@@ -70,8 +87,10 @@ deploy: ## [stub] Deploy a version
 
 .PHONY: clean
 clean: ## Clean workspace
-	sh -c '.circleci/scripts/clean.sh'
+	$(sh_c) '.circleci/scripts/clean.sh'
+
+
 
 .PHONY: open
 open: ## [*] Open Build Dashboard (macOS local job)
-	sh -c 'open build/reports/buildDashboard/index.html'
+	$(sh_c) 'open build/reports/buildDashboard/index.html'

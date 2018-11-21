@@ -38,18 +38,25 @@ jobs:
             CODECOV_TOKEN: 9019abcf-fcf7-4ce6-8c96-deef09a42fa2
             SONARCLOUD_TOKEN: 5be2f82a04aa8bf3879d1bc64b3aaa60844855ff
 
-  build:
+  build-code:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:11-jdk'}]
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: "Build phase"
+          name: "Code Build phase"
           command: make build
 
-      - store_artifacts:
-          path: ~/work/artifacts
+  build-image:
+    working_directory: ~/work
+    docker: [{image: 'circleci/openjdk:11-jdk'}]
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Image Build phase"
+          command: make build-image
 
 workflows:
   version: 2
@@ -57,4 +64,6 @@ workflows:
     jobs:
       - validate
       - test
-      - build
+      - build-code
+      - build-image
+...
