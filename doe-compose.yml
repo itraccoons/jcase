@@ -2,7 +2,7 @@
 pip:
   install: --user
     - yamllint
-    
+
 builtin:
   export:
     - PATH=~/.local/bin:$PATH
