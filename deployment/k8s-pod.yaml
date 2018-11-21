@@ -22,4 +22,4 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-  type: LoadBalanceroleksii_kucheruk@cloudshell:~/projects/jcase/deployment (td-jcase)$
+  type: LoadBalancer
