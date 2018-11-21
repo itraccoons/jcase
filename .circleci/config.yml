@@ -65,5 +65,9 @@ workflows:
       - validate
       - test
       - build-code
-      - build-image
+      - build-image:
+          requires:
+            - validate
+            - test
+            - build-code
 ...
