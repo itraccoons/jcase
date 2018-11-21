@@ -63,7 +63,7 @@ build-docs: ## [stub] Generate documentation
 #	$(sh_c) '.circleci/scripts/build/docs.sh'
 
 .PHONY: build-image
-build-image: ##
+build-image: ## Build Image
 	$(sh_c) '.circleci/scripts/build/skaffold.sh'
 
 

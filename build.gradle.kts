@@ -37,8 +37,8 @@ val checkstyleVersion by extra { "8.13" }
 val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
 val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
-val minimumBundleCoverage by extra { 0.6 }
-val minimumClassCoverage by extra { 0.6 }
+val minimumBundleCoverage by extra { 0.5 }
+val minimumClassCoverage by extra { 0.5 }
 
 dependencies {
     // implementation("com.google.guava:guava:27.0-jre")
