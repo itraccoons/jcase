@@ -6,3 +6,5 @@ spec:
   containers:
   - name: jcase-container
     image: gcr.io/td-jcase/jcase
+    ports:
+      - containerPort: 8080
