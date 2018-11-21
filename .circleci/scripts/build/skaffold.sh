@@ -25,7 +25,8 @@ fi
 echo "Running Build Script:"
 echo "Skaffold Tasks"
 
-${sh_c} 'skaffold build'
+docker -v
+#${sh_c} 'skaffold build'
 # ${sh_c} 'skaffold run'
 
 set +x
