@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Build Docker image with Skaffold
+# Written by: Oleksii Kucheruk <ok@raccoons.co> on Wed Nov 21 2018
+
+##
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Print commands and their arguments as they are executed
+set -x
+
+pwd
+ls
+
+# Using 'sh -c' can avoid situation then VCS do not preserves file permissions
+sh_c='sh -c'
+
+
+os="$( uname -s | tr '[:upper:]' '[:lower:]' )"
+curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-${os}-amd64 && chmod +x skaffold
+sudo mv skaffold /usr/local/bin
+
+
+echo "Running Build Script:"
+echo "Skaffold Tasks"
+
+${sh_c} 'skaffold build'
+
+set +x
