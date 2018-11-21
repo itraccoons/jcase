@@ -4,7 +4,7 @@ kind: Config
 build:
   artifacts:
     - image: gcr.io/td-jcase/jcase
-#      context: .
+      context: .
 #      jibGradle: {}
 deploy:
   kubectl:

@@ -11,20 +11,21 @@ set -e
 set -x
 
 pwd
-ls
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c='sh -c'
 
 
-os="$( uname -s | tr '[:upper:]' '[:lower:]' )"
-curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-${os}-amd64 && chmod +x skaffold
-sudo mv skaffold /usr/local/bin
-
+if ! command -v skaffold; then
+  os="$( uname -s | tr '[:upper:]' '[:lower:]' )"
+  curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-"${os}"-amd64 && chmod +x skaffold
+  sudo mv skaffold /usr/local/bin
+fi
 
 echo "Running Build Script:"
 echo "Skaffold Tasks"
 
 ${sh_c} 'skaffold build'
+# ${sh_c} 'skaffold run'
 
 set +x
