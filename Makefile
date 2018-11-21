@@ -49,7 +49,7 @@ test-coverage: ## Run test coverage
 
 .PHONY: depends
 depends: ## Install software dependencies
-	$(sh_c) '.circleci/scripts/depends.sh'
+	$(sh_c) '.circleci/scripts/install/depends.sh'
 
 
 
