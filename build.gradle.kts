@@ -14,7 +14,8 @@ plugins {
     id("com.github.kt3k.coveralls") version "2.6.3" // [draft] to remove
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
-    id("org.gretty") version "2.2.0"
+    // id("org.gretty") version "2.2.0"
+    id("org.springframework.boot") version "2.1.0.RELEASE"
 }
 
 allprojects {
@@ -48,6 +49,8 @@ dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
+    implementation("org.springframework.boot:spring-boot-starter:2.1.0.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE")
 }
 
 java {
@@ -92,6 +95,7 @@ jib {
     }
 }
 
+/*
 gretty {
     httpEnabled = true
     httpPort = 8080
@@ -99,6 +103,7 @@ gretty {
     // httpsPort = 443
     servletContainer = "jetty9"
 }
+ */
 
 /*
  * Enable required Checkstyle reports formats (HTML, XML).

@@ -1,8 +1,25 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: td-jcase
+  name: td-jcase-pod
+  labels:
+    app: td-jcase-app
 spec:
   containers:
   - name: jcase-container
     image: gcr.io/td-jcase/jcase
+    ports:
+      - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: td-jcase-service
+spec:
+  selector:
+    app: td-jcase-app
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: LoadBalanceroleksii_kucheruk@cloudshell:~/projects/jcase/deployment (td-jcase)$
