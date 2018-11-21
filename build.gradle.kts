@@ -14,6 +14,7 @@ plugins {
     id("com.github.kt3k.coveralls") version "2.6.3" // [draft] to remove
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
+    id("org.gretty") version "2.2.0"
 }
 
 allprojects {
@@ -36,21 +37,23 @@ val checkstyleVersion by extra { "8.13" }
 val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
 val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
-val minimumBundleCoverage by extra { 0.6 }
-val minimumClassCoverage by extra { 0.6 }
+val minimumBundleCoverage by extra { 0.5 }
+val minimumClassCoverage by extra { 0.5 }
 
 dependencies {
+    // implementation("com.google.guava:guava:27.0-jre")
+    // implementation("com.google.http-client:google-http-client:1.27.0")
+    // implementation("org.apache.httpcomponents:httpclient:4.5.6")
+    implementation("com.google.cloud.tools:jib-core:0.1.0")
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
 }
 
-/*
- * java {
- *     targetCompatibility = JavaVersion.VERSION_1_10
- *     sourceCompatibility = JavaVersion.VERSION_1_10
- * }
- */
+java {
+    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
 
 application {
     mainClassName = packageName + "." + mainClass
@@ -75,6 +78,26 @@ sonarqube {
         // property("sonar.branch.target", "master") // commented because the main(master) branch must not have a target
         property("sonar.java.checkstyle.reportPaths", "build/reports/checkstyle/main.xml,build/reports/checkstyle/test.xml")
     }
+}
+
+jib {
+    /*
+    from{
+        image = "circleci/openjdk:11-jdk"
+    }
+    */
+    to {
+        image = "gcr.io/td-jcase/jcase:" + project.version
+        credHelper = "gcr"
+    }
+}
+
+gretty {
+    httpEnabled = true
+    httpPort = 8080
+    httpsEnabled = true
+    // httpsPort = 443
+    servletContainer = "jetty9"
 }
 
 /*

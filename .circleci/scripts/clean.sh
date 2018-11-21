@@ -16,4 +16,7 @@ pwd
 sh_c='sh -c'
 
 echo "Running Cleanup Script:"
+
 ${sh_c} './gradlew clean --console=plain'
+
+set +x
