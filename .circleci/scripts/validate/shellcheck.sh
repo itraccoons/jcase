@@ -14,7 +14,9 @@ pwd
 
 echo "Running Shellcheck Script:"
 echo "ShellCheck audit"
+
 shellcheck --version
+
 find .circleci/scripts/ -type f -name "*.sh" -exec shellcheck {} +
 
 set +x

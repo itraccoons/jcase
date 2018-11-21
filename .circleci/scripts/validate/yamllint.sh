@@ -14,7 +14,9 @@ pwd
 
 echo "Running YAML Lint Script:"
 echo "YAML audit"
+
 yamllint --version
+
 find . -type f -name "*.yml" -exec yamllint {} +
 
 set +x

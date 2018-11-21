@@ -26,7 +26,9 @@ echo "Running Build Script:"
 echo "Skaffold Tasks"
 
 docker -v
+
 ${sh_c} './gradlew build --console=plain -x check'
+
 #${sh_c} 'skaffold build'
 ${sh_c} 'skaffold run'
 

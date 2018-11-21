@@ -1,0 +1,28 @@
+---
+pip:
+  install: --user
+    - yamllint
+    
+builtin:
+  export:
+    - PATH=~/.local/bin:$PATH
+    - PROJECT_ID=td-jcase
+    - CLUSTER_NAME=jcase-cluster-by-skaffold
+  eval:
+    - yamllint --config-data relaxed ./doe-compose.yml; [ $? -ne 0 ] && exit
+
+gcloud:
+  config:
+    - set project $PROJECT_ID
+    - set compute/region us-central
+    - set compute/zone us-central1-a
+  container: clusters
+    - create $CLUSTER_NAME
+    - get-credentials $CLUSTER_NAME
+#    - delete $CLUSTER_NAME
+#    - list
+
+skaffold:
+  deploy:
+    - --toot
+...

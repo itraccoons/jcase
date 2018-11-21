@@ -17,8 +17,11 @@ sh_c='sh -c'
 
 echo "Running Checkstyle Script:"
 echo "Google Java Style audit"
+
 java -jar .circleci/tools/checkstyle-8.13-all.jar -v
+
 find src/ -type f -name "*.java" -exec java -jar .circleci/tools/checkstyle-8.13-all.jar -c .circleci/tools/google_checks.xml {} +
+
 ${sh_c} './gradlew checkstyleMain checkstyleTest'
 
 set +x

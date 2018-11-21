@@ -17,7 +17,9 @@ pwd
 
 echo "Running Kotlin Linter Script:"
 echo "Kotlin audit"
+
 .circleci/tools/ktlint --version
+
 find . -type f -name "*.kts" -exec .circleci/tools/ktlint {} +
 #find . -type f -name "*.kts" | xargs .circleci/tools/ktlint
 
