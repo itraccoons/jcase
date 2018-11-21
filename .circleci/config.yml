@@ -70,4 +70,7 @@ workflows:
             - validate
             - test
             - build-code
+#          filters:
+#            branches:
+#              only: master
 ...
