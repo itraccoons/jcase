@@ -61,3 +61,4 @@ install_depends()
 echo "Running Dependencies Script:"
 
 install_depends 'shellcheck yamllint'
+#install_depends 'shellcheck yamllint skaffold'
