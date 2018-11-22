@@ -145,7 +145,7 @@ val jacocoTestCoverageVerification by tasks.getting(JacocoCoverageVerification::
         }
         rule {
             element = "CLASS"
-            excludes = listOf("*" + mainClass)
+            excludes = listOf("*" + mainClass + "*")
             limit {
                 minimum = BigDecimal.valueOf(minimumClassCoverage)
             }
