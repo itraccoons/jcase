@@ -47,6 +47,7 @@ public class Circle {
   /**
    * Missing a Javadoc comment.
    */
+  @Override
   public String toString() {
     return getClass().getName()
                    + "[x=" + this.center.getX()
