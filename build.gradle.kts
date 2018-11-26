@@ -16,6 +16,7 @@ plugins {
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
     // id("org.gretty") version "2.2.0"
     id("org.springframework.boot") version "2.1.0.RELEASE"
+    id("net.ltgt.errorprone") version "0.6"
 }
 
 allprojects {
@@ -51,6 +52,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
     implementation("org.springframework.boot:spring-boot-starter:2.1.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE")
+    errorprone("com.google.errorprone:error_prone_core:2.3.2")
 }
 
 java {
