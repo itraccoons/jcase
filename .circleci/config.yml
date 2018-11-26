@@ -63,14 +63,17 @@ workflows:
   ci:
     jobs:
       - validate
-      - build-code
       - test
+      - build-code:
+          requires:
+            - validate
+            - test
       - build-image:
           requires:
             - validate
-            - build-code
             - test
-#          filters:
-#            branches:
-#              only: master
+            - build-code
+          filters:
+            branches:
+              only: skaffold
 ...
