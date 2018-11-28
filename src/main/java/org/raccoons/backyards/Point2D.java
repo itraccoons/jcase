@@ -1,6 +1,6 @@
 package org.raccoons.backyards;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import javax.annotation.Nullable;
 
 @SuppressWarnings("WeakerAccess")
 
@@ -58,7 +58,7 @@ public class Point2D implements Cloneable {
    * @return true if it is equal
    */
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(@Nullable Object o) {
     if (! (o instanceof Point2D)) {
       return false;
     }
