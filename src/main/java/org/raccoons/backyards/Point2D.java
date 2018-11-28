@@ -38,11 +38,11 @@ public class Point2D implements Cloneable {
   }
 
   public double getX() {
-    return coordinateX;
+    return this.coordinateX;
   }
 
   public double getY() {
-    return coordinateY;
+    return this.coordinateY;
   }
 
   @Override
@@ -63,11 +63,11 @@ public class Point2D implements Cloneable {
       return false;
     }
     Point2D p = (Point2D) o;
-    return coordinateX == p.coordinateX && coordinateY == p.coordinateY;
+    return this.coordinateX == p.coordinateX && this.coordinateY == p.coordinateY;
   }
 
   @Override
   public String toString() {
-    return getClass().getName() + "[x=" + coordinateX + ",y=" + coordinateY + "]";
+    return getClass().getName() + "[x=" + this.coordinateX + ",y=" + this.coordinateY + "]";
   }
 }
