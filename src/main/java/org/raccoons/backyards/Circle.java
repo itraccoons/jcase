@@ -50,9 +50,8 @@ public class Circle {
    */
   @Override
   public String toString() {
-    double x = this.center.getX();
     return getClass().getName()
-                   + "[x=" + x
+                   + "[x=" + this.center.getX()
                    + ",y=" + this.center.getY()
                    + ",r=" + this.radius
                    + "]";
