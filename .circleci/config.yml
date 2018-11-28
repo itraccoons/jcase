@@ -22,13 +22,13 @@ jobs:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:8-jdk'}]
     steps:
-    - checkout
-    - setup_remote_docker:
-        reusable: true
-        exclusive: false
-    - run:
-        name: "Validate code with OpenJDK 8"
-        command: make lint
+      - checkout
+      - setup_remote_docker:
+          reusable: true
+          exclusive: false
+      - run:
+          name: "Validate code with OpenJDK 8"
+          command: make lint
 
   test:
     working_directory: ~/work
