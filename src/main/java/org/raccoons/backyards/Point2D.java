@@ -63,7 +63,7 @@ public class Point2D implements Cloneable {
       return false;
     }
     Point2D p = (Point2D) o;
-    return getX() == p.getX() && getY() == p.getY();
+    return coordinateX == p.coordinateX && coordinateY == p.coordinateY;
   }
 
   @Override
