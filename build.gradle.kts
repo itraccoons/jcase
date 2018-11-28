@@ -17,6 +17,7 @@ plugins {
     // id("org.gretty") version "2.2.0"
     id("org.springframework.boot") version "2.1.0.RELEASE"
     id("net.ltgt.errorprone") version "0.6"
+    // id("com.jaredsburrows.checkerframework") version "0.2.1"
 }
 
 allprojects {
@@ -27,6 +28,17 @@ allprojects {
         mavenCentral()
         jcenter()
         google()
+    }
+
+    java {
+        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    if (JavaVersion.current() == JavaVersion.VERSION_1_8) {
+        project.apply {
+            from("checkerframework.gradle")
+        }
     }
 }
 
@@ -53,11 +65,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter:2.1.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE")
     errorprone("com.google.errorprone:error_prone_core:2.3.2")
-}
-
-java {
-    targetCompatibility = JavaVersion.VERSION_1_8
-    sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
 application {
