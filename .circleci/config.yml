@@ -18,7 +18,7 @@ jobs:
           name: "Validate code with OpenJDK 11"
           command: make lint
 
-  validate-openjdk-8:
+  validate-with-openjdk-8:
     working_directory: ~/work
     docker: [{image: 'circleci/openjdk:8-jdk'}]
     steps:
