@@ -21,8 +21,8 @@ public class Circle {
   }
 
   public Circle(Point2D center, double radius) {
-    this.setCenterTo(center);
-    this.setRadiusAs(radius);
+    this.center = center;
+    this.radius = radius;
   }
 
   public void setCenterTo(double x, double y) {
