@@ -64,7 +64,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
     implementation("org.springframework.boot:spring-boot-starter:2.1.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE")
-    errorprone("com.google.errorprone:error_prone_core:2.3.2")
+    errorproneJavac("com.google.errorprone:error_prone_core:2.3.2")
 }
 
 application {
