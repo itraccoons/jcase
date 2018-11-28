@@ -1,7 +1,6 @@
 package org.raccoons.backyards;
 
-@SuppressWarnings("WeakerAccess"
-)
+@SuppressWarnings("WeakerAccess")
 
 public class Point2D implements Cloneable {
 

@@ -1,7 +1,6 @@
 package org.raccoons.backyards;
 
-@SuppressWarnings("WeakerAccess"
-)
+@SuppressWarnings("WeakerAccess")
 
 public class Circle {
   private Point2D center;
