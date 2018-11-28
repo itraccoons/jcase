@@ -69,7 +69,7 @@ public class Circle {
     }
     if (obj instanceof Circle) {
       Circle c = (Circle)obj;
-      return getCenter() == c.getCenter() && getRadius() == c.getRadius();
+      return center == c.center && radius == c.radius;
     }
     return false;
   }
