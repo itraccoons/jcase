@@ -50,6 +50,11 @@ public class Point2D implements Cloneable {
     return (Point2D) super.clone();
   }
 
+  @Override
+  public int hashCode() {
+    return super.hashCode();
+  }
+
   /**
    *  Compares two points for equality. This returns true if they have the
    * same coordinates.
