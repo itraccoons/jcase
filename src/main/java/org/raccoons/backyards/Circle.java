@@ -1,5 +1,7 @@
 package org.raccoons.backyards;
 
+import javax.annotation.Nullable;
+
 @SuppressWarnings("WeakerAccess")
 
 public class Circle {
@@ -61,7 +63,7 @@ public class Circle {
   }
 
   @Override
-  public boolean equals(Object obj) {
+  public boolean equals(@Nullable Object obj) {
     if (obj == this) {
       return true;
     }
