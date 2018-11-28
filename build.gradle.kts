@@ -16,7 +16,7 @@ plugins {
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
     // id("org.gretty") version "2.2.0"
     id("org.springframework.boot") version "2.1.0.RELEASE"
-    id("net.ltgt.errorprone") version "0.6"
+    // id("net.ltgt.errorprone") version "0.6"
     // id("com.jaredsburrows.checkerframework") version "0.2.1"
 }
 
