@@ -54,7 +54,7 @@ val minimumBundleCoverage by extra { 0.5 }
 val minimumClassCoverage by extra { 0.5 }
 
 dependencies {
-    // implementation("com.google.guava:guava:27.0-jre")
+    implementation("com.google.guava:guava:27.0-jre")
     // implementation("com.google.http-client:google-http-client:1.27.0")
     // implementation("org.apache.httpcomponents:httpclient:4.5.6")
     implementation("com.google.cloud.tools:jib-core:0.1.0")
