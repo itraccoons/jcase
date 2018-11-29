@@ -12,7 +12,7 @@ set -x
 
 pwd
 
-LINUX_PACKAGES="shellcheck yamllint skaffold python3-pkg-resources"
+LINUX_PACKAGES="shellcheck yamllint python3-pkg-resources"
 MACOS_PACKAGES="shellcheck yamllint skaffold"
 
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
