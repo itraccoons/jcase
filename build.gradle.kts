@@ -85,7 +85,7 @@ allprojects {
 
     if (JavaVersion.current() == JavaVersion.VERSION_1_8) {
         project.apply {
-            from("checkerframework.gradle.kts")
+            from("checkerframework.gradle")
         }
     }
 }
