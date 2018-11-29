@@ -28,7 +28,6 @@ plugins {
     id("com.github.kt3k.coveralls") version "2.6.3" // [draft] to remove
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
-    // id("org.gretty") version "2.2.0"
     id("org.springframework.boot") version "2.1.0.RELEASE"
     id("net.ltgt.errorprone") version "0.6"
 }
@@ -48,11 +47,6 @@ allprojects {
         sourceCompatibility = JavaVersion.VERSION_1_8
     }
 
-    if (JavaVersion.current() == JavaVersion.VERSION_1_8) {
-        project.apply {
-            from("checkerframework.gradle")
-        }
-    }
     application {
         mainClassName = packageName + "." + mainClass
     }
@@ -90,15 +84,11 @@ allprojects {
         }
     }
 
-    /*
-    gretty {
-        httpEnabled = true
-        httpPort = 8080
-        httpsEnabled = true
-        // httpsPort = 443
-        servletContainer = "jetty9"
+    if (JavaVersion.current() == JavaVersion.VERSION_1_8) {
+        project.apply {
+            from("checkerframework.gradle")
+        }
     }
-    */
 }
 
 /*
