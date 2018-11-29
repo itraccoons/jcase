@@ -1,3 +1,5 @@
+import net.ltgt.gradle.errorprone.errorprone
+
 /*
  * Gradle Build with Kotlin DSL
  *
@@ -84,6 +86,9 @@ allprojects {
     }
 
     if (JavaVersion.current() == JavaVersion.VERSION_1_8) {
+        tasks.withType<JavaCompile> {
+            options.errorprone.isEnabled = false
+        }
         project.apply {
             from("checkerframework.gradle")
         }
