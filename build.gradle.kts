@@ -9,14 +9,14 @@
  */
 val packageName by extra { "org.raccoons.backyards" }
 val mainClass by extra { "TransformationJCase" }
-val checkstyleVersion by extra { "8.13" }
+val checkstyleVersion by extra { "8.14" }
 val checkstyleConfigFile by extra { "config/checkstyle/google_checks.xml" }
 val junitApiVersion by extra { "5.3.1" }
 val jacocoVersion by extra { "0.8.2" }
 val minimumBundleCoverage by extra { 0.5 }
 val minimumClassCoverage by extra { 0.5 }
 val springbootVersion by extra { "2.1.0.RELEASE" }
-var errorproneVersion by extra { "2.3.3-SHAPSHOT" }
+var errorproneVersion by extra { "2.3.2" }
 
 plugins {
     java
@@ -151,8 +151,6 @@ val test by tasks.getting(Test::class) {
 
 dependencies {
     implementation("com.google.guava:guava:27.0-jre")
-    // implementation("com.google.http-client:google-http-client:1.27.0")
-    // implementation("org.apache.httpcomponents:httpclient:4.5.6")
     implementation("com.google.cloud.tools:jib-core:0.1.0")
     testCompile("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
     testImplementation("org.junit.jupiter:junit-jupiter-api:" + junitApiVersion)
