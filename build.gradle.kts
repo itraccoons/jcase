@@ -16,7 +16,7 @@ val jacocoVersion by extra { "0.8.2" }
 val minimumBundleCoverage by extra { 0.5 }
 val minimumClassCoverage by extra { 0.5 }
 val springbootVersion by extra { "2.1.0.RELEASE" }
-var errorproneVersion by extra { "2.3.2" }
+var errorproneVersion by extra { "2.3.1" }
 
 plugins {
     java
