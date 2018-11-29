@@ -56,7 +56,7 @@ compileJava {
                 '-processor', 'org.checkerframework.checker.nullness.NullnessChecker',
                 '-Xmaxerrs', '10000',
                 '-Xmaxwarns', '10000',
-                // '-Awarns',      // -Awarns turns Checker Framework errors into warnings
+                '-Awarns',      // -Awarns turns Checker Framework errors into warnings
                 '-AcheckPurityAnnotations',
                 "-Xbootclasspath/p:${configurations.checkerFrameworkAnnotatedJDK.asPath}"
         ]
