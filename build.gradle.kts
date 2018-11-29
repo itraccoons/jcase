@@ -28,7 +28,7 @@ plugins {
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
     id("org.springframework.boot") version "2.1.0.RELEASE"
-    // id("net.ltgt.errorprone") version "0.6"
+    id("net.ltgt.errorprone") version "0.6"
 }
 
 allprojects {
@@ -159,6 +159,6 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:" + junitApiVersion)
     implementation("org.springframework.boot:spring-boot-starter:" + springbootVersion)
     implementation("org.springframework.boot:spring-boot-starter-web:" + springbootVersion)
-    // errorprone("com.google.errorprone:error_prone_core:" + errorproneVersion)
-    // errorproneJavac("com.google.errorprone:error_prone_core:" + errorproneVersion)
+    errorprone("com.google.errorprone:error_prone_core:" + errorproneVersion)
+    errorproneJavac("com.google.errorprone:error_prone_core:" + errorproneVersion)
 }
