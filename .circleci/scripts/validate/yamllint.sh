@@ -11,6 +11,7 @@ set -e
 set -x
 
 pwd
+java --version
 
 echo "Running YAML Lint Script:"
 echo "YAML audit"
