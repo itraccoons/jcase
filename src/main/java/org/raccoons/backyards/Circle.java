@@ -1,7 +1,8 @@
 package org.raccoons.backyards;
 
-@SuppressWarnings("WeakerAccess"
-)
+import javax.annotation.Nullable;
+
+@SuppressWarnings("WeakerAccess")
 
 public class Circle {
   private Point2D center;
@@ -20,8 +21,8 @@ public class Circle {
   }
 
   public Circle(Point2D center, double radius) {
-    this.setCenterTo(center);
-    this.setRadiusAs(radius);
+    this.center = center;
+    this.radius = radius;
   }
 
   public void setCenterTo(double x, double y) {
@@ -62,13 +63,14 @@ public class Circle {
   }
 
   @Override
-  public boolean equals(Object obj) {
+  public boolean equals(@Nullable Object obj) {
     if (obj == this) {
       return true;
     }
     if (obj instanceof Circle) {
       Circle c = (Circle)obj;
-      return getCenter() == c.getCenter() && getRadius() == c.getRadius();
+      // return this.center == c.center && this.radius == c.radius;
+      return this.center.equals(c.center) && this.radius == c.radius;
     }
     return false;
   }

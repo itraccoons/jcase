@@ -12,6 +12,9 @@ set -x
 
 pwd
 
+LINUX_PACKAGES="shellcheck yamllint python3-pkg-resources"
+MACOS_PACKAGES="shellcheck yamllint skaffold"
+
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 #sh_c='sh -c'
 
@@ -31,8 +34,6 @@ command_exists() {
 
 install_depends()
 {
-  tools=$1
-
   os="$( uname -s | tr '[:upper:]' '[:lower:]' )"
   case ${os} in
     linux) # install linters inside docker container
@@ -41,9 +42,11 @@ install_depends()
         sudo apt-get update
         package_manager_install="sudo apt-get -y install"
 	  fi
+      tools=${LINUX_PACKAGES}
 	  ;;
 	darwin) # install linters locally at macOS
 	  package_manager_install="brew install"
+	  tools=${MACOS_PACKAGES}
 	  ;;
   esac
 
@@ -60,5 +63,4 @@ install_depends()
 
 echo "Running Dependencies Script:"
 
-install_depends 'shellcheck yamllint'
-#install_depends 'shellcheck yamllint skaffold'
+install_depends

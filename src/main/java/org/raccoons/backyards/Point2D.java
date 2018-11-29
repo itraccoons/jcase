@@ -1,7 +1,8 @@
 package org.raccoons.backyards;
 
-@SuppressWarnings("WeakerAccess"
-)
+import javax.annotation.Nullable;
+
+@SuppressWarnings("WeakerAccess")
 
 public class Point2D implements Cloneable {
 
@@ -37,16 +38,21 @@ public class Point2D implements Cloneable {
   }
 
   public double getX() {
-    return coordinateX;
+    return this.coordinateX;
   }
 
   public double getY() {
-    return coordinateY;
+    return this.coordinateY;
   }
 
   @Override
   protected Point2D clone() throws CloneNotSupportedException {
     return (Point2D) super.clone();
+  }
+
+  @Override
+  public int hashCode() {
+    return super.hashCode();
   }
 
   /**
@@ -57,16 +63,16 @@ public class Point2D implements Cloneable {
    * @return true if it is equal
    */
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(@Nullable Object o) {
     if (! (o instanceof Point2D)) {
       return false;
     }
     Point2D p = (Point2D) o;
-    return getX() == p.getX() && getY() == p.getY();
+    return this.coordinateX == p.coordinateX && this.coordinateY == p.coordinateY;
   }
 
   @Override
   public String toString() {
-    return getClass().getName() + "[x=" + coordinateX + ",y=" + coordinateY + "]";
+    return getClass().getName() + "[x=" + this.coordinateX + ",y=" + this.coordinateY + "]";
   }
 }
