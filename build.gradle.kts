@@ -25,7 +25,6 @@ plugins {
     jacoco // Java Code Coverage Library
     `project-report`
     `build-dashboard`
-    id("com.github.kt3k.coveralls") version "2.6.3" // [draft] to remove
     id("org.sonarqube") version "2.6.2" // Continuous inspection of code quality
     id("com.google.cloud.tools.jib") version "0.10.0" // Building Docker and OCI images for Java application
     id("org.springframework.boot") version "2.1.0.RELEASE"

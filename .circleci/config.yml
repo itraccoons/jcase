@@ -42,8 +42,6 @@ jobs:
           environment:
             CI: true
             CIRCLECI: true
-            COVERALLS_REPO_TOKEN: WbqZA8Q0UCgvSqMgaEpbMCgqr46thjrPL
-            CODECOV_TOKEN: 9019abcf-fcf7-4ce6-8c96-deef09a42fa2
             SONARCLOUD_TOKEN: 5be2f82a04aa8bf3879d1bc64b3aaa60844855ff
 
   build-code:
