@@ -56,7 +56,7 @@ public class Point2D implements Cloneable {
   }
 
   /**
-   *  Compares two points for equality. This returns true if they have the
+   * Compares two points for equality. This returns true if they have the
    * same coordinates.
    *
    * @param o the point to compare

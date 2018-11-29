@@ -20,7 +20,7 @@ echo "Gradle Tasks"
 
 ${sh_c} './gradlew --version'
 #${sh_c} './gradlew build projectReport --console=plain -x jacocoTestCoverageVerification'
-${sh_c} './gradlew build projectReport --console=plain -x check'
+${sh_c} './gradlew clean build projectReport --console=plain -x check'
 ${sh_c} './gradlew javadoc'
 #${sh_c} './gradlew run'
 
