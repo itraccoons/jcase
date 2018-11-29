@@ -70,7 +70,9 @@ workflows:
     jobs:
       - validate-with-openjdk-8
       - validate
-      - test
+      - test:
+        requires:
+          - validate
       - build-code:
           requires:
             - validate
