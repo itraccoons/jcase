@@ -69,8 +69,8 @@ public class Circle {
     }
     if (obj instanceof Circle) {
       Circle c = (Circle)obj;
-      // return this.center == c.center && this.radius == c.radius;
-      return this.center.equals(c.center) && this.radius == c.radius;
+      return this.center == c.center && this.radius == c.radius;
+      // return this.center.equals(c.center) && this.radius == c.radius;
     }
     return false;
   }
