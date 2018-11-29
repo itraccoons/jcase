@@ -71,8 +71,8 @@ workflows:
       - validate-with-openjdk-8
       - validate
       - test:
-        requires:
-          - validate
+          requires:
+            - validate
       - build-code:
           requires:
             - validate
