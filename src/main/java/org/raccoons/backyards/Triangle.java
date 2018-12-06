@@ -1,35 +1,49 @@
+/*
+ * Copyright (C) 2018
+ *
+ * Need to put here copyright notes
+ */
+
 package org.raccoons.backyards;
 
 import javax.annotation.Nullable;
 
+/**
+ * Need to put here descriptions what class implements
+ *
+ * @author Oleksii Kucheruk
+ * @since 2018-12-04
+ */
 public class Triangle {
   /*
-   * Three vertices/points/tops of triangle
+   * Three points/tops of triangle
    */
-  private Point2D vertexA;
-  private Point2D vertexB;
-  private Point2D vertexC;
+  private Point2D pointA;
+  private Point2D pointB;
+  private Point2D pointC;
 
   /**
-   * Constructs and initializes a triangle at the vertices origin a(0; 0), b(0; 1), c(1;0)
+   * Constructs and initializes a triangle at the points origin a(0; 0), b(0; 1), c(1;0)
    * of the coordinate space.
    */
-  public Triangle() {
+  public Triangle() throws Exception {
     this(new Point2D(0,0), new Point2D(0,1), new Point2D(1,0));
   }
 
   /**
    * Constructs and initializes a triangle with the location as the specified three Point2D
-   * vertices.
+   * points.
    *
-   * @param pointA - First triangle vertex
-   * @param pointB - Second triangle vertex
-   * @param pointC - Third triangle vertex
+   * @param pointA - First triangle point
+   * @param pointB - Second triangle point
+   * @param pointC - Third triangle point
    */
-  public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) {
-    this.vertexA = pointA;
-    this.vertexB = pointB;
-    this.vertexC = pointC;
+  public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) throws Exception {
+    this.pointA = pointA;
+    this.pointB = pointB;
+    this.pointC = pointC;
+    if (isCollinear())
+      throw new Exception("Points are collinear and does not determines two-dimensional triangle");
   }
 
   /**
@@ -37,11 +51,11 @@ public class Triangle {
    * For three points, slope of any pair of points must be same as other pair.
    * (y3 - y2)/(x3 - x2) = (y2 - y1)/(x2 - x1).
    * In other words, (y3 - y2)(x2 - x1) = (y2 - y1)(x3 - x2)
-   * Returns "True" when three vertices is non-collinear.
+   * Returns "True" when three points is collinear.
    */
-  private boolean isNonCollinear() {
-    return (vertexC.getY() - vertexB.getY()) * (vertexB.getX() - vertexA.getX())
-                   != (vertexB.getY() - vertexA.getY()) * (vertexC.getX() - vertexB.getX());
+  private boolean isCollinear() {
+    return (pointC.getY() - pointB.getY()) * (pointB.getX() - pointA.getX())
+                   == (pointB.getY() - pointA.getY()) * (pointC.getX() - pointB.getX());
   }
 
   @Override
@@ -63,9 +77,9 @@ public class Triangle {
     }
     if (obj instanceof Triangle) {
       Triangle t = (Triangle) obj;
-      return this.vertexA.equals(t.vertexA)
-                     && this.vertexB.equals(t.vertexB)
-                     && this.vertexC.equals(t.vertexC);
+      return this.pointA.equals(t.pointA)
+                     && this.pointB.equals(t.pointB)
+                     && this.pointC.equals(t.pointC);
     }
     return false;
   }
@@ -78,9 +92,9 @@ public class Triangle {
   public String toString() {
     return getClass().getName()
                    + "["
-                   + "a(" + this.vertexA.getX() + "; " + this.vertexA.getY() + "), "
-                   + "b(" + this.vertexB.getX() + "; " + this.vertexB.getY() + "), "
-                   + "c(" + this.vertexC.getX() + "; " + this.vertexC.getY() + ")"
+                   + "a(" + this.pointA.getX() + "; " + this.pointA.getY() + "), "
+                   + "b(" + this.pointB.getX() + "; " + this.pointB.getY() + "), "
+                   + "c(" + this.pointC.getX() + "; " + this.pointC.getY() + ")"
                    + "]";
   }
 }

@@ -18,10 +18,11 @@ public class TransformationJCaseController {
     return myCircle.toString();
   }
 
+  /*
   @RequestMapping("/triangle")
   public String getTriangle() {
     Triangle myTriangle = new Triangle();
     return myTriangle.toString();
   }
-
+   */
 }
