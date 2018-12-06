@@ -24,6 +24,8 @@ public class Triangle {
   /**
    * Constructs and initializes a triangle at the points origin a(0; 0), b(0; 1), c(1;0)
    * of the coordinate space.
+   *
+   * @throws Exception if three points does not determine triangle
    */
   public Triangle() throws Exception {
     this(new Point2D(0,0), new Point2D(0,1), new Point2D(1,0));
@@ -36,6 +38,7 @@ public class Triangle {
    * @param pointA First triangle point
    * @param pointB Second triangle point
    * @param pointC Third triangle point
+   * @throws Exception if three points does not determine triangle
    */
   public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) throws Exception {
     this.pointA = pointA;
@@ -52,7 +55,7 @@ public class Triangle {
    * For three points, slope of any pair of points must be same as other pair.
    * (y3 - y2)/(x3 - x2) = (y2 - y1)/(x2 - x1).
    * In other words, (y3 - y2)(x2 - x1) = (y2 - y1)(x3 - x2)
-   * Returns "True" when three points is collinear.
+   * Returns "True" when three points are collinear.
    */
   private boolean isCollinear() {
     return (pointC.getY() - pointB.getY()) * (pointB.getX() - pointA.getX())
