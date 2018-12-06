@@ -16,7 +16,7 @@ public class TransformationJCase {
     // SpringApplication.run(TransformationJCase.class, args);
 
     Point2D myPoint2D1 = new Point2D(0,0);
-    Point2D myPoint2D2 = new Point2D(0,1);
+    Point2D myPoint2D2 = new Point2D(1,1);
     Point2D myPoint2D3 = new Point2D(0,2);
 
     try {

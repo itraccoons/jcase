@@ -9,15 +9,14 @@ package org.raccoons.backyards;
 import javax.annotation.Nullable;
 
 /**
- * Need to put here descriptions what class implements.
+ * Need to put here description what class implements.
+ * notes: First sentence of Javadoc ending period is "." even if just one word!!!
  *
  * @author Oleksii Kucheruk
  * @since 2018-12-04
  */
 public class Triangle {
-  /*
-   * Three points/tops of triangle
-   */
+  // Three points of triangle
   private Point2D pointA;
   private Point2D pointB;
   private Point2D pointC;
@@ -34,14 +33,15 @@ public class Triangle {
    * Constructs and initializes a triangle with the location as the specified three Point2D
    * points.
    *
-   * @param pointA - First triangle point
-   * @param pointB - Second triangle point
-   * @param pointC - Third triangle point
+   * @param pointA First triangle point
+   * @param pointB Second triangle point
+   * @param pointC Third triangle point
    */
   public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) throws Exception {
     this.pointA = pointA;
     this.pointB = pointB;
     this.pointC = pointC;
+
     if (isCollinear()) {
       throw new Exception("Points are collinear and does not determines two-dimensional triangle");
     }
@@ -59,6 +59,10 @@ public class Triangle {
                    == (pointB.getY() - pointA.getY()) * (pointC.getX() - pointB.getX());
   }
 
+  /**
+   * need to read J.Bloch "effective java se"
+   * @return hash of triangle
+   */
   @Override
   public int hashCode() {
     return super.hashCode();
@@ -67,7 +71,7 @@ public class Triangle {
   /**
    * Determines whether or not two triangles are equal.
    *
-   * @param  obj an object to be compared with this Triangle
+   * @param  obj an object to be compared with this triangle
    * @return     true if the object to be compared is an instance of Triangle and has the same
    *             values; false otherwise.
    */
@@ -86,7 +90,7 @@ public class Triangle {
   }
 
   /**
-   * Returns a string representation of this triangle and its location in the (x,y)coordinate
+   * Returns a string representation of this triangle and its location in the (x,y) coordinate
    * space.
    */
   @Override
