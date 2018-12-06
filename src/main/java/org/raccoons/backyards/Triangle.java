@@ -27,7 +27,7 @@ public class Triangle {
    *
    * @throws Exception if three points does not determine triangle
    */
-  public Triangle() throws Exception {
+  public Triangle() throws IllegalArgumentException {
     this(new Point2D(0,0), new Point2D(0,1), new Point2D(1,0));
   }
 
@@ -38,20 +38,19 @@ public class Triangle {
    * @param pointA First triangle point
    * @param pointB Second triangle point
    * @param pointC Third triangle point
-   * @throws Exception if three points does not determine triangle
+   * @throws       Exception if three points does not determine triangle
    */
-  public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) throws Exception {
+  public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) throws IllegalArgumentException {
     if (isCollinear(pointA, pointB, pointC)) {
-      throw new Exception("Points are collinear and does not determines two-dimensional triangle");
+      throw new IllegalArgumentException("Points are collinear and does not determines two-dimensional triangle");
     }
     this.pointA = pointA;
     this.pointB = pointB;
     this.pointC = pointC;
-
   }
 
   /**
-   * Method to check if three points non-collinear and determines two-dimensional triangle.
+   * Check if three points are collinear and does not determines two-dimensional triangle.
    * For three points, slope of any pair of points must be same as other pair.
    * (y3 - y2)/(x3 - x2) = (y2 - y1)/(x2 - x1).
    * In other words, (y3 - y2)(x2 - x1) = (y2 - y1)(x3 - x2)
@@ -98,7 +97,7 @@ public class Triangle {
 
   /**
    * Returns a string representation of this triangle and its location in the (x,y) coordinate
-   * space.
+   * space. E.g. org.raccoons.backyards.Triangle[a(0.0; 0.0), b(1.0; 1.0), c(0.0; 2.0)]
    */
   @Override
   public String toString() {
