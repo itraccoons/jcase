@@ -17,4 +17,11 @@ public class TransformationJCaseController {
     Circle myCircle = new Circle();
     return myCircle.toString();
   }
+
+  @RequestMapping("/triangle")
+  public String getTriangle() {
+    Triangle myTriangle = new Triangle();
+    return myTriangle.toString();
+  }
+
 }
