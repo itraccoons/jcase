@@ -19,11 +19,12 @@ public class Triangle {
   }
 
   /**
-   * Constructs and initializes a triangle with the location as the specified three points.
+   * Constructs and initializes a triangle with the location as the specified three Point2D
+   * vertices.
    *
-   * @param pointA First triangle vertex
-   * @param pointB Second triangle vertex
-   * @param pointC Third triangle vertex
+   * @param pointA - First triangle vertex
+   * @param pointB - Second triangle vertex
+   * @param pointC - Third triangle vertex
    */
   public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) {
     this.vertexA = pointA;
@@ -44,25 +45,16 @@ public class Triangle {
   }
 
   @Override
-  public String toString() {
-    return getClass().getName()
-                   + "["
-                   + "a(" + this.vertexA.getX() + "; " + this.vertexA.getY() + "), "
-                   + "b(" + this.vertexB.getX() + "; " + this.vertexB.getY() + "), "
-                   + "c(" + this.vertexC.getX() + "; " + this.vertexC.getY() + ")"
-                   + "]";
-  }
-
-  @Override
   public int hashCode() {
     return super.hashCode();
   }
 
   /**
-   * Determines whether or not two triangle are equal.
-   * <p></p>
-   * @param obj an object to be compared with this Triangle
-   * Returns
+   * Determines whether or not two triangles are equal.
+   *
+   * @param  obj an object to be compared with this Triangle
+   * @return     true if the object to be compared is an instance of Triangle and has the same
+   *             values; false otherwise.
    */
   @Override
   public boolean equals(@Nullable Object obj) {
@@ -76,5 +68,19 @@ public class Triangle {
                      && this.vertexC.equals(t.vertexC);
     }
     return false;
+  }
+
+  /**
+   * Returns a string representation of this triangle and its location in the (x,y)coordinate
+   * space.
+   */
+  @Override
+  public String toString() {
+    return getClass().getName()
+                   + "["
+                   + "a(" + this.vertexA.getX() + "; " + this.vertexA.getY() + "), "
+                   + "b(" + this.vertexB.getX() + "; " + this.vertexB.getY() + "), "
+                   + "c(" + this.vertexC.getX() + "; " + this.vertexC.getY() + ")"
+                   + "]";
   }
 }
