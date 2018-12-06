@@ -15,12 +15,12 @@ public class TransformationJCase {
   public static void main(String[] args) {
     // SpringApplication.run(TransformationJCase.class, args);
 
-    Point2D myPoint2D_1 = new Point2D(0,0),
-            myPoint2D_2 = new Point2D(0,1),
-            myPoint2D_3 = new Point2D(0,2);
+    Point2D myPoint2D1 = new Point2D(0,0);
+    Point2D myPoint2D2 = new Point2D(0,1);
+    Point2D myPoint2D3 = new Point2D(0,2);
 
     try {
-      Triangle myTriangle = new Triangle(myPoint2D_1, myPoint2D_2, myPoint2D_3);
+      Triangle myTriangle = new Triangle(myPoint2D1, myPoint2D2, myPoint2D3);
       System.out.println(myTriangle);
     } catch (Exception e) {
       System.out.println(e);

@@ -9,7 +9,7 @@ package org.raccoons.backyards;
 import javax.annotation.Nullable;
 
 /**
- * Need to put here descriptions what class implements
+ * Need to put here descriptions what class implements.
  *
  * @author Oleksii Kucheruk
  * @since 2018-12-04
@@ -42,8 +42,9 @@ public class Triangle {
     this.pointA = pointA;
     this.pointB = pointB;
     this.pointC = pointC;
-    if (isCollinear())
+    if (isCollinear()) {
       throw new Exception("Points are collinear and does not determines two-dimensional triangle");
+    }
   }
 
   /**
