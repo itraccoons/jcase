@@ -41,13 +41,13 @@ public class Triangle {
    * @throws Exception if three points does not determine triangle
    */
   public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) throws Exception {
+    if (isCollinear(pointA, pointB, pointC)) {
+      throw new Exception("Points are collinear and does not determines two-dimensional triangle");
+    }
     this.pointA = pointA;
     this.pointB = pointB;
     this.pointC = pointC;
 
-    if (isCollinear()) {
-      throw new Exception("Points are collinear and does not determines two-dimensional triangle");
-    }
   }
 
   /**
@@ -55,9 +55,13 @@ public class Triangle {
    * For three points, slope of any pair of points must be same as other pair.
    * (y3 - y2)/(x3 - x2) = (y2 - y1)/(x2 - x1).
    * In other words, (y3 - y2)(x2 - x1) = (y2 - y1)(x3 - x2)
-   * Returns "True" when three points are collinear.
+   *
+   * @param pointA First triangle point
+   * @param pointB Second triangle point
+   * @param pointC Third triangle point
+   * @return       true when three points are collinear.
    */
-  private boolean isCollinear() {
+  private boolean isCollinear(Point2D pointA, Point2D pointB, Point2D pointC) {
     return (pointC.getY() - pointB.getY()) * (pointB.getX() - pointA.getX())
                    == (pointB.getY() - pointA.getY()) * (pointC.getX() - pointB.getX());
   }
