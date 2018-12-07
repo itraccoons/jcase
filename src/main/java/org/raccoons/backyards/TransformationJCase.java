@@ -15,19 +15,32 @@ public class TransformationJCase {
   public static void main(String[] args) {
     // SpringApplication.run(TransformationJCase.class, args);
 
-    Point2D myPoint2D1 = new Point2D();
-    Point2D myPoint2D2 = new Point2D(1,1);
-    Point2D myPoint2D3 = new Point2D(0,2);
+    Point myPoint2 = new Point2D();
 
-    System.out.println(myPoint2D1);
-    System.out.println(myPoint2D2);
-    System.out.println(myPoint2D3);
+    Point a2 = new Point2D();
+    Point b2 = new Point2D();
+    Point c2 = new Point2D(0,2);
 
-    try (Triangle myTriangle = new Triangle(myPoint2D1, myPoint2D2, myPoint2D3)) {
-      System.out.println(myTriangle);
+    b2.setLocation(a2.coordinateX + 1, a2.coordinateY);
+    System.out.println(a2 + "-" + b2 + "-" + c2);
+
+    Point a3 = new Point3D();
+    Point b3 = new Point3D();
+    Point c3 = new Point3D(10,11,12);
+
+    b3.setLocation(a3.coordinateX + 10, a3.coordinateY, a3.coordinateZ);
+    System.out.println(a3 + "-" + b3 + "-" + c3);
+
+    try {
+      Triangle myTriangleIn2D = new Triangle(a2, b2, c2);
+      System.out.println(myTriangleIn2D);
+
+      Triangle myTriangleIn3D = new Triangle(a3, b3, c3);
+      System.out.println(myTriangleIn3D);
     } catch (IllegalArgumentException e) {
       System.out.println(e);
     }
+
   }
 
 }

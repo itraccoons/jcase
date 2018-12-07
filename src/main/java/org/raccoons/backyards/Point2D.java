@@ -4,45 +4,28 @@ import javax.annotation.Nullable;
 
 @SuppressWarnings("WeakerAccess")
 
-public class Point2D implements Cloneable {
-
-  /*
-   * The x and y coordinates
-   */
-  private double coordinateX;
-  private double coordinateY;
-
+public class Point2D extends Point implements Cloneable {
   public Point2D() {
+    this(0,0);
   }
 
   public Point2D(double x, double y) {
-    this.coordinateX = x;
-    this.coordinateY = y;
+    super(x, y);
   }
 
-  public void setX(double x) {
-    this.coordinateX = x;
+  @Override
+  public void setLocation(double... coordinates) {
+    this.coordinateX = coordinates[0];
+    this.coordinateY = coordinates[1];
   }
 
-  public void setY(double y) {
-    this.coordinateY = y;
-  }
-
-  public void setLocation(double x, double y) {
-    this.coordinateX = x;
-    this.coordinateY = y;
-  }
-
-  public void setLocation(Point2D p) {
-    setLocation(p.getX(), p.getY());
-  }
-
-  public double getX() {
-    return this.coordinateX;
-  }
-
-  public double getY() {
-    return this.coordinateY;
+  @Override
+  public void setLocation(Point point) {
+    if (point instanceof Point2D) {
+      setLocation(point.coordinateX, point.coordinateY);
+    } else {
+      throw new IllegalArgumentException("XXX");
+    }
   }
 
   @Override
@@ -73,6 +56,9 @@ public class Point2D implements Cloneable {
 
   @Override
   public String toString() {
-    return getClass().getName() + "[x=" + this.coordinateX + ",y=" + this.coordinateY + "]";
+    return getClass().getSimpleName()
+                   + "("
+                   + this.coordinateX + "; " + this.coordinateY
+                   + ")";
   }
 }

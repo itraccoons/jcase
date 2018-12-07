@@ -17,33 +17,36 @@ import javax.annotation.Nullable;
  */
 public class Triangle {
   // Three points of triangle
-  private Point2D pointA;
-  private Point2D pointB;
-  private Point2D pointC;
+  private Point pointA;
+  private Point pointB;
+  private Point pointC;
 
   /**
    * Constructs and initializes a triangle at the points origin a(0; 0), b(0; 1), c(1;0)
    * of the coordinate space.
    *
-   * @throws Exception if three points does not determine triangle
+   * @throws IllegalArgumentException if three points does not determine triangle
    */
   public Triangle() throws IllegalArgumentException {
-    this(new Point2D(0,0), new Point2D(0,1), new Point2D(1,0));
+    // this(new Point2D(0,0), new Point2D(0,1), new Point2D(1,0));
+    throw new IllegalArgumentException(
+            getClass().getSimpleName() + " constructor call without arguments is not allowed");
   }
 
   /**
-   * Constructs and initializes a triangle with the location as the specified three Point2D
+   * Constructs and initializes a triangle with the location as the specified three Point
    * points.
    *
    * @param pointA First triangle point
    * @param pointB Second triangle point
    * @param pointC Third triangle point
-   * @throws       Exception if three points does not determine triangle
+   * @throws       IllegalArgumentException if three points does not determine triangle
    */
-  public Triangle(Point2D pointA, Point2D pointB, Point2D pointC) throws IllegalArgumentException {
+  public Triangle(Point pointA, Point pointB, Point pointC) throws IllegalArgumentException {
     if (isCollinear(pointA, pointB, pointC)) {
-      throw new IllegalArgumentException("Points are collinear and does not determines two-dimensional triangle");
+      throw new IllegalArgumentException("Points does not determines triangle");
     }
+
     this.pointA = pointA;
     this.pointB = pointB;
     this.pointC = pointC;
@@ -60,9 +63,24 @@ public class Triangle {
    * @param pointC Third triangle point
    * @return       true when three points are collinear.
    */
-  private boolean isCollinear(Point2D pointA, Point2D pointB, Point2D pointC) {
-    return (pointC.getY() - pointB.getY()) * (pointB.getX() - pointA.getX())
-                   == (pointB.getY() - pointA.getY()) * (pointC.getX() - pointB.getX());
+  private static boolean isCollinear(Point pointA, Point pointB, Point pointC) {
+    if (allInstanceOf(Point2D.class, pointA, pointB, pointC)) {
+      return (pointC.getY() - pointB.getY()) * (pointB.getX() - pointA.getX())
+                     == (pointB.getY() - pointA.getY()) * (pointC.getX() - pointB.getX());
+    } else if (allInstanceOf(Point3D.class, pointA, pointB, pointC)) {
+      return false;
+    } else {
+      return false;
+    }
+  }
+
+  private static boolean allInstanceOf(Class<?> cls, Object... objs) {
+    for (Object o : objs) {
+      if (!cls.isInstance(o)) {
+        return false;
+      }
+    }
+    return true;
   }
 
   /**
@@ -96,16 +114,16 @@ public class Triangle {
   }
 
   /**
-   * Returns a string representation of this triangle and its location in the (x,y) coordinate
-   * space. E.g. org.raccoons.backyards.Triangle[a(0.0; 0.0), b(1.0; 1.0), c(0.0; 2.0)]
+   * Returns a string representation of this triangle and its location in the (x,y) or (x,y,z)
+   * coordinate space.
    */
   @Override
   public String toString() {
-    return getClass().getName()
+    return getClass().getSimpleName()
                    + "["
-                   + "a(" + this.pointA.getX() + "; " + this.pointA.getY() + "), "
-                   + "b(" + this.pointB.getX() + "; " + this.pointB.getY() + "), "
-                   + "c(" + this.pointC.getX() + "; " + this.pointC.getY() + ")"
+                   + this.pointA.toString() + ", "
+                   + this.pointB.toString() + ", "
+                   + this.pointC.toString()
                    + "]";
   }
 }
