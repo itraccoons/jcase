@@ -1,12 +1,12 @@
 package org.raccoons.backyards;
 
 public abstract class Point {
-  // The x, y, z coordinates
+  // The x, y coordinates
   public double coordinateX;
   public double coordinateY;
-  public double coordinateZ;
 
   public Point() {
+    this(0,0);
   }
 
   /** Constructs and initializes a point at the (x,y) coordinate space. */
@@ -19,7 +19,7 @@ public abstract class Point {
   public Point(double x, double y, double z) {
     this.coordinateX = x;
     this.coordinateY = y;
-    this.coordinateZ = z;
+    // this.coordinateZ = z;
   }
 
   public void setX(double x) {
@@ -40,5 +40,5 @@ public abstract class Point {
 
   public abstract void setLocation(double... coordinates);
 
-  public abstract void setLocation(Point point);
+  // public abstract void setLocation(Point p);
 }

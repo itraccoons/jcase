@@ -15,8 +15,6 @@ public class TransformationJCase {
   public static void main(String[] args) {
     // SpringApplication.run(TransformationJCase.class, args);
 
-    Point myPoint2 = new Point2D();
-
     Point a2 = new Point2D();
     Point b2 = new Point2D();
     Point c2 = new Point2D(0,2);
@@ -28,7 +26,7 @@ public class TransformationJCase {
     Point b3 = new Point3D();
     Point c3 = new Point3D(10,11,12);
 
-    b3.setLocation(a3.coordinateX + 10, a3.coordinateY, a3.coordinateZ);
+    b3.setLocation(a3.coordinateX + 10, a3.coordinateY, ((Point3D) a3).getZ());
     System.out.println(a3 + "-" + b3 + "-" + c3);
 
     try {

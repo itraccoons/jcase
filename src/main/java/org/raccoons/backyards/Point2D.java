@@ -19,13 +19,8 @@ public class Point2D extends Point implements Cloneable {
     this.coordinateY = coordinates[1];
   }
 
-  @Override
-  public void setLocation(Point point) {
-    if (point instanceof Point2D) {
-      setLocation(point.coordinateX, point.coordinateY);
-    } else {
-      throw new IllegalArgumentException("XXX");
-    }
+  public void setLocation(Point2D p) {
+    setLocation(p.coordinateX, p.coordinateY);
   }
 
   @Override
@@ -43,15 +38,18 @@ public class Point2D extends Point implements Cloneable {
    * same coordinates.
    *
    * @param o the point to compare
-   * @return true if it is equal
+   * @return  true if it is equal
    */
   @Override
   public boolean equals(@Nullable Object o) {
-    if (! (o instanceof Point2D)) {
-      return false;
+    if (o == this) {
+      return true;
     }
-    Point2D p = (Point2D) o;
-    return this.coordinateX == p.coordinateX && this.coordinateY == p.coordinateY;
+    if (o instanceof Point2D) {
+      Point2D p = (Point2D) o;
+      return this.coordinateX == p.coordinateX && this.coordinateY == p.coordinateY;
+    }
+    return false;
   }
 
   @Override

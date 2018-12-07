@@ -1,6 +1,10 @@
 package org.raccoons.backyards;
 
-public class Point3D extends Point  {
+import javax.annotation.Nullable;
+
+public class Point3D extends Point {
+  // The z coordinate
+  private double coordinateZ;
 
   public Point3D() {
     this(0,0,0);
@@ -8,6 +12,10 @@ public class Point3D extends Point  {
 
   public Point3D(double x, double y, double z) {
     super(x, y, z);
+    //this.coordinateX = x;
+    //this.coordinateY = y;
+    this.coordinateZ = z;
+
   }
 
   public void setZ(double z) {
@@ -25,13 +33,27 @@ public class Point3D extends Point  {
     this.coordinateZ = coordinates[2];
   }
 
+  public void setLocation(Point3D p) {
+    setLocation(p.coordinateX, p.coordinateY, p.coordinateZ);
+  }
+
   @Override
-  public void setLocation(Point point) {
-    if (point instanceof Point3D) {
-      setLocation(point.coordinateX, point.coordinateY, point.coordinateZ);
-    } else {
-      throw new IllegalArgumentException("XXX");
+  public int hashCode() {
+    return super.hashCode();
+  }
+
+  @Override
+  public boolean equals(@Nullable Object o) {
+    if (o == this) {
+      return true;
     }
+    if (o instanceof Point3D) {
+      Point3D p = (Point3D) o;
+      return this.coordinateX == p.coordinateX
+                     && this.coordinateY == p.coordinateY
+                     && this.coordinateZ == p.coordinateZ;
+    }
+    return false;
   }
 
   @Override
