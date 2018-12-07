@@ -53,7 +53,7 @@ class Point2DTest {
 
   @Test
   void testToString() {
-    String expectedString = "org.raccoons.backyards.Point2D[x=0.0,y=0.0]";
+    String expectedString = "Point2D(0.0; 0.0)";
     Assertions.assertEquals(expectedString, testPoint.toString());
   }
 

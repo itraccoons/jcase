@@ -53,10 +53,7 @@ public class Triangle {
   }
 
   /**
-   * Check if three points are collinear and does not determines two-dimensional triangle.
-   * For three points, slope of any pair of points must be same as other pair.
-   * (y3 - y2)/(x3 - x2) = (y2 - y1)/(x2 - x1).
-   * In other words, (y3 - y2)(x2 - x1) = (y2 - y1)(x3 - x2)
+   * Check if three points are collinear and does not determines  triangle.
    *
    * @param pointA First triangle point
    * @param pointB Second triangle point
@@ -65,13 +62,23 @@ public class Triangle {
    */
   private static boolean isCollinear(Point pointA, Point pointB, Point pointC) {
     if (allInstanceOf(Point2D.class, pointA, pointB, pointC)) {
+      /*
+       * Two-dimensional space:
+       * For three points, slope of any pair of points must be same as other pair.
+       * (y3 - y2)/(x3 - x2) = (y2 - y1)/(x2 - x1).
+       * In other words, (y3 - y2)(x2 - x1) = (y2 - y1)(x3 - x2)
+       */
       return (pointC.getY() - pointB.getY()) * (pointB.getX() - pointA.getX())
                      == (pointB.getY() - pointA.getY()) * (pointC.getX() - pointB.getX());
     } else if (allInstanceOf(Point3D.class, pointA, pointB, pointC)) {
-      return false;
-    } else {
+      /*
+       * Three-dimensional space:
+       * stub
+       */
       return false;
     }
+    throw new IllegalArgumentException("Method invoked with wrong arguments type");
+    //return false;
   }
 
   private static boolean allInstanceOf(Class<?> cls, Object... objs) {

@@ -10,12 +10,12 @@ public class Point3D extends Point {
     this(0,0,0);
   }
 
+  /** Constructs and initializes a point at the (x,y,z) coordinate space. */
   public Point3D(double x, double y, double z) {
-    super(x, y, z);
-    //this.coordinateX = x;
-    //this.coordinateY = y;
+    //super(x, y, z);
+    this.coordinateX = x;
+    this.coordinateY = y;
     this.coordinateZ = z;
-
   }
 
   public void setZ(double z) {

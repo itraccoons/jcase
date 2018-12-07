@@ -15,13 +15,6 @@ public abstract class Point {
     this.coordinateY = y;
   }
 
-  /** Constructs and initializes a point at the (x,y,z) coordinate space. */
-  public Point(double x, double y, double z) {
-    this.coordinateX = x;
-    this.coordinateY = y;
-    // this.coordinateZ = z;
-  }
-
   public void setX(double x) {
     this.coordinateX = x;
   }

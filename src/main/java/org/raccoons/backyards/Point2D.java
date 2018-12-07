@@ -9,8 +9,11 @@ public class Point2D extends Point implements Cloneable {
     this(0,0);
   }
 
+  /** Constructs and initializes a point at the (x,y) coordinate space. */
   public Point2D(double x, double y) {
     super(x, y);
+    // this.coordinateX = x;
+    // this.coordinateY = y;
   }
 
   @Override

@@ -94,3 +94,7 @@ clean: ## Clean workspace
 .PHONY: open
 open: ## [*] Open Build Dashboard (macOS local job)
 	$(sh_c) 'open build/reports/buildDashboard/index.html'
+
+.PHONY: run
+run: ## [*] Run this project as a JVM application
+	$(sh_c) './gradlew run'
